@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     background-image: url(../parts/kuva.avif);
     background-size: cover;  /* Ensures the image covers the entire content area */
     background-position: center; /* Centers the image */
