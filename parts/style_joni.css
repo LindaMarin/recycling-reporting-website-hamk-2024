@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background-image: url(../parts/kuva.avif);
+    background-size: cover;  /* Ensures the image covers the entire content area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: white;
+    overflow-x: hidden;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 100px 0 27px 0; /* Adjust padding for better alignment */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px; /* Limit the width */
+    margin: 0 auto; /* Center the navbar */
+    position: relative; /* Make the navbar the relative container */
+
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-right: 30px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.navbar ul li a.active {
+    background-color: white;
+    color: #53b44f;
+    font-weight: bold;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    z-index: 2;
+    padding: 10px 20px;  /* Reduced padding */
+    margin-bottom: -5px;  /* Overlap the container slightly */
+}
+
+.user-icon {
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #53b44f;
+    position: relative;
+    top: -20px;  /* Move the icon 10px higher */
+    right: 0; /* Align the icon to the far right */
+    margin-right: 20px; /* Adjust the margin to ensure some spacing from the edge */
+}
+
+
+.icon-circle {
+    background-color: #53b44f;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.container {
+    background-color: white;  /* Set to a lighter gray to match the mockup */
+    margin: 0 auto;
+    padding: 100px; /* Reduced padding for a more compact look */
+    width: 60%;
+    border-radius: 15px;
+    position: relative;
+    text-align: center;
+    max-width: 700px;
+    top: -30px;  /* Slightly reduced top positioning */
+    z-index: 1;  /* Behind the active tab */
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textbox {
+    border: 2px solid #53b44f;
+    border-radius: 25px;
+    padding: 15px;
+    width: 300px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.centered-medium-text {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.arrow-down {
+    font-size: 40px;
+    color: green;
+    margin-bottom: 20px;
+}
+
+.arrow-right {
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: green;
+}
+
+.footer {
+    background-color: #53b44f;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* mun jutut */
+
+.btn-group {
+    position: relative; /* Ensure dropdowns position correctly */
+}
+
+.btn-group .dropdown {
+    position: relative; /* Position for dropdown */
+    display: inline-block; /* Align buttons inline */
+}
+
+.btn-group .dropbtn {
+    background-color: #04AA6D; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+}
+
+/* Hide the dropdown content by default */
+.dropdown-content {
+    display: none; 
+    position: absolute; /* Position the dropdown */
+    background-color: white; 
+    min-width: 160px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    z-index: 1; 
+    text-align: left; 
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block; /* Show on hover */
+}
+
+.dropdown-content button {
+    background-color: #f9f9f9; 
+    color: black; 
+    padding: 10px 20px; 
+    border: none; 
+    text-align: left; 
+    width: 100%; 
+    cursor: pointer; 
+}
+
+/* Add a hover effect for dropdown buttons */
+.dropdown-content button:hover {
+    background-color: #ddd; /* Change background on hover */
+}
+
+/* Highlight the button when pressed */
+.dropdown-content button:active,
+.dropdown-content button:focus {
+    background-color: #94d800; /* Change to the desired highlight color */
+    color: white; /* Ensure text color is appropriate */
+    outline: none; /* Remove outline */
+}
