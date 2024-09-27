@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background-image: url(../parts/BG-winter.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    overflow-x: hidden;
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 120px 0 27px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-right: 30px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.navbar ul li a.active {
+    background-color: rgba(248, 255, 246);
+    color: #519D4B;
+    font-weight: bold;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    z-index: 2;
+    padding: 10px 20px;
+    margin-bottom: -5px;
+}
+
+.user-icon {
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #519D4B;
+    position: relative;
+    top: -20px;
+    right: 0;
+    margin-right: 20px;
+}
+
+.user-icon img {
+    width: 55%;
+    height: 55%;
+    position: relative;
+    cursor: pointer;
+}
+
+.container {
+    background-color: rgba(248, 255, 246);
+    margin: 0 auto;
+    padding: 30px; /* Reduced padding for a more compact look */
+    width: 60%;
+    border-radius: 45px;
+    position: relative;
+    text-align: center;
+    max-width: 800px;
+    top: -30px;  /* Slightly reduced top positioning */
+    z-index: 1;  /* Behind the active tab */
+    box-sizing: border-box;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.previous-button img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.finish-next {
+    display: flex;
+    align-items: center;
+}
+
+.finish-text {
+    color: #519D4B;
+    font-size: 36px;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-bottom: 8px;
+}
+
+.next-button img {
+    width: 70px;
+    height: 70px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.footer {
+    background-color: #519D4B;
+    text-align: center;
+    margin-top: auto;
+    padding: 20px;
+    font-size: 18px;
+    color: #ffffff;
+    position: relative;
+    width: 100%;
+}
+
