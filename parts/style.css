@@ -39,23 +39,4 @@
     margin-bottom: 20px;
 }
 
-.arrow-right {
-    position: absolute;
-    right: -30px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: green;
-}
-
-.footer {
-    background-color: #53b44f;
-    text-align: center;
-    padding: 20px;
-    font-size: 18px;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
 
