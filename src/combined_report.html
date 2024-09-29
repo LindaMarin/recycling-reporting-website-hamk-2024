@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recycling Reporting</title>
     <link rel="stylesheet" href="../parts/global.css">
-    <link rel="stylesheet" href="../parts/style.css"> <!-- For Step 1 -->
-    <link rel="stylesheet" href="../parts/style_step_2.css"> <!-- For Step 2 -->
-    <link rel="stylesheet" href="../parts/step3.css"> <!-- For Step 3 -->
+    <link class="dynamic-css" rel="stylesheet" href="../parts/style-step1.css"> <!-- Initial CSS for Step 1 -->
+
+    <link rel="stylesheet" href="../parts/style-step1.css"> <!-- For Step 1 -->
+    <link rel="stylesheet" href="../parts/style-step2.css"> <!-- For Step 2 -->
+    <link rel="stylesheet" href="../parts/style-step3.css"> <!-- For Step 3 -->
     <link rel="stylesheet" href="../parts/style-step4.css"> <!-- For Step 4 -->
+    <link rel="stylesheet" href="../parts/confirmation.css"> <!-- For confirmation, Step 5 -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- For icons -->
     <style>
@@ -26,7 +29,7 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="../src/learn.html">Learn</a></li>
             <li><a href="../src/status_map.html">Status map</a></li>
-            <li><a href="../src/report.html" class="active">Reporting</a></li>
+            <li><a href="../src/combined_report.html" class="active">Reporting</a></li>
         </ul>
         <div class="user-icon">
             <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
@@ -50,9 +53,6 @@
                     <option value="address3">Street xx, 13100 Hml</option>
                     <option value="address4">Street xx, 13100 Hml</option>
                 </select>
-            </div>
-            <div class="arrow-right">
-                <span>&#x2192;</span>
             </div>
             <div class="action">
                 <div class="next-button">
@@ -173,11 +173,11 @@
                     </li>
                     <li>
                         <input type="radio" id="anonymous" name="report" value="anonymous">
-                        <label for="anonymous">As an anonymous</label>
+                        <label for="anonymous">Anonymously</label>
                     </li>
                     <li>
                         <input type="radio" id="hide" name="report" value="hide">
-                        <label for="hide">Hide your personal information</label>
+                        <label for="hide">Registered user but personal information hidden</label>
                     </li>
                 </ul>
             </div>
@@ -195,35 +195,67 @@
         </div>
     </div>
 
+    <!-- Step 5, confirmation -->
+    <div id="step5" class="step">
+        <div class="container">
+        <h1>Thank you for reporting!</h1>
+            <div class="return_home">
+            <a class="button" href="../index.html">Return to home page.</a>
+            </div>
+        </div>
+    </div>
+    
     <div class="footer">
         Footer
     </div>
 
     <script>
-        // JavaScript to handle steps navigation and dynamically change CSS
+        function updateStepCSS(stepNumber) {
+            // Get the <link> element that dynamically changes
+            const cssLink = document.querySelector('.dynamic-css');
+            
+            // Build the new href based on the step number
+            let newHref;
+            switch(stepNumber) {
+                case 1:
+                    newHref = '../parts/style-step1.css';
+                    break;
+                case 2:
+                    newHref = '../parts/style-step2.css';
+                    break;
+                case 3:
+                    newHref = '../parts/style-step3.css';
+                    break;
+                case 4:
+                    newHref = '../parts/style-step4.css';
+                    break;
+                case 5:
+                    newHref = '../parts/confirmation.css';
+                    break;
+                default:
+                    newHref = '../parts/global.css'; // Fallback
+            }
+            
+            // Update the href attribute to point to the new stylesheet
+            cssLink.href = newHref;
+        }
+        
         function nextStep(currentStep) {
             const nextStepElement = document.getElementById(`step${currentStep + 1}`);
             if (nextStepElement) {
                 document.getElementById(`step${currentStep}`).classList.remove('active');
                 nextStepElement.classList.add('active');
-                updateStepCSS(currentStep + 1);
+                updateStepCSS(currentStep + 1); // Update the CSS for the next step
             }
         }
-
+        
         function prevStep(currentStep) {
             const prevStepElement = document.getElementById(`step${currentStep - 1}`);
             if (prevStepElement) {
                 document.getElementById(`step${currentStep}`).classList.remove('active');
                 prevStepElement.classList.add('active');
-                updateStepCSS(currentStep - 1);
+                updateStepCSS(currentStep - 1); // Update the CSS for the previous step
             }
-        }
-
-        function updateStepCSS(stepNumber) {
-            const cssLinks = document.querySelectorAll('.dynamic-css');
-            cssLinks.forEach(link => {
-                link.href = `../parts/style_step_${stepNumber}.css`; // Adjust the path as needed
-            });
         }
 
         function changeColor(button, category) {
@@ -247,6 +279,33 @@
             }
         }
 
+        function selectOption(selectedButton) {
+            const buttons = document.querySelectorAll('.option-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            selectedButton.classList.add('active');
+            console.log('Selected option:', selectedButton.textContent);
+        }
+        
+        window.onload = function() {
+            // Get the current URL hash (the part after the #)
+            const urlHash = window.location.hash;
+
+            // Check if there's a hash part in the URL
+            if (urlHash) {
+                // Remove the '#' and decode the URI component (to handle any encoded characters)
+                const address = decodeURIComponent(urlHash.substring(1));
+
+                // Set the address in the first input field
+                const addressInput = document.getElementById('addressInput');
+                addressInput.value = address;
+            } else {
+                // If no address in the URL, you can set a default value
+                const addressInput = document.getElementById('addressInput');
+                addressInput.value = "Street xx, 13100 Hml"; // Default value
+            }
+        };
     </script>
 </body>
 </html>
