@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mockup Page</title>
+    <link rel="stylesheet" href="../parts/global.css" />
+    <link rel="stylesheet" href="../parts/style_step2.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../src/learn.html">Learn</a></li>
+        <li><a href="../src/status_map.html">Status map</a></li>
+        <li><a href="../src/report.html" class="active">Reporting</a></li>
+      </ul>
+      <div class="user-icon">
+        <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="btn-group">
+        <div class="dropdown">
+          <button class="dropbtn">Waste sorting area</button>
+          <div class="dropdown-content">
+            <button onclick="changeColor(this, 'Waste sorting area')">
+              Equipment
+            </button>
+            <button onclick="changeColor(this, 'Waste sorting area')">
+              Ventilation
+            </button>
+            <button onclick="changeColor(this, 'Waste sorting area')">
+              Doors
+            </button>
+            <button onclick="changeColor(this, 'Waste sorting area')">
+              Floor
+            </button>
+            <button onclick="changeColor(this, 'Waste sorting area')">
+              Accessibility
+            </button>
+            <button onclick="changeColor(this, 'Waste sorting area')">
+              Distances
+            </button>
+            <button onclick="changeColor(this, 'Waste sorting area')">
+              Lighting
+            </button>
+            <button onclick="changeColor(this, 'Waste sorting area')">
+              Signage
+            </button>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">General cleanliness</button>
+          <div class="dropdown-content">
+            <button onclick="changeColor(this, 'General cleanliness')">
+              Cleanliness
+            </button>
+            <button onclick="changeColor(this, 'General cleanliness')">
+              Unwanted Animals
+            </button>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Waste bins</button>
+          <div class="dropdown-content">
+            <button onclick="changeColor(this, 'Waste bins')">Placement</button>
+            <button onclick="changeColor(this, 'Waste bins')">
+              Filling Levels
+            </button>
+            <button onclick="changeColor(this, 'Waste bins')">Quantity</button>
+            <button onclick="changeColor(this, 'Waste bins')">Signage</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Area to display clicked button text -->
+      <div id="selected-items">
+        <h3>Selected Issues:</h3>
+        <ul id="selected-list"></ul>
+      </div>
+
+      <!-- Action Buttons Centered Below Content -->
+      <div class="action">
+        <a class="previous-button" href="report_step2.html">
+            <img src="/parts/left_arrow_icon.png" alt="Previous" />
+        </a>
+        <div class="finish-next">
+            <a class="next-button" href="report_step4.html">
+              <img src="/parts/right_arrow_icon.png" alt="Next" />
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Footer</div>
+
+    <script>
+      function changeColor(button, category) {
+        button.classList.toggle("clicked"); // Toggle the color change
+
+        const selectedList = document.getElementById("selected-list");
+        const buttonText = `${category} - ${button.innerText}`; // Combine category and button text
+
+        if (button.classList.contains("clicked")) {
+          // If clicked, add the text
+          const listItem = document.createElement("li");
+          listItem.textContent = buttonText;
+          listItem.setAttribute("id", buttonText); // Use combined text as unique ID
+          selectedList.appendChild(listItem);
+        } else {
+          // If unclicked, remove the text
+          const listItem = document.getElementById(buttonText);
+          if (listItem) {
+            selectedList.removeChild(listItem);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

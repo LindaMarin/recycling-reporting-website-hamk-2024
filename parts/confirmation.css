@@ -1,0 +1,22 @@
+h1 {
+    flex: auto;
+    text-align: center;
+    color: #53b44f;
+    padding: 100px
+}
+
+.button {
+    background-color: #53b44f;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 45px;
+}
+
+a:hover {
+    background-color: #75b473;
+}
