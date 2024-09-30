@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporting - Step 3</title>
-    <link rel="stylesheet" href="../parts/global.css">
     <link rel="stylesheet" href="../parts/style_step3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
 </head>
 
 <body>
-<!--header-->
+    <!--header-->
     <div class="navbar">
         <ul>
             <li><a href="../index.html">Home</a></li>
@@ -22,40 +21,54 @@
             <img src="/parts/user_app_basic_icon.png" />
         </div>
     </div>
+
     <!--main-->
     <div class="container">
+        <div class="info">
+            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions()"></i>
+        </div>
         <div class="input-box">
-            <div class="options">
-                <button id="fullbin" class="option-button" onclick="selectOption(this)">Full bins</button>
-                <button id="cleanliness" class="option-button" onclick="selectOption(this)">Cleanliness</button>
-                <button id="misssortedwaste" class="option-button" onclick="selectOption(this)">Miss sorted waste</button>
-                <button id="Labelsnotvisible" class="option-button" onclick="selectOption(this)">Labels not visible</button>
+            <div class="cat-options">
+                <button id="fullbin" class="option-button" onclick="selectOption(this)">Full bins <i class="fas fa-arrow-right"></i></button>
+                <button id="cleanliness" class="option-button" onclick="selectOption(this)">Cleanliness <i class="fas fa-arrow-right"></i></button>
+                <button id="misssortedwaste" class="option-button" onclick="selectOption(this)">Miss sorted waste <i class="fas fa-arrow-right"></i></button>
+                <button id="labelsnotvisible" class="option-button" onclick="selectOption(this)">Labels not visible <i class="fas fa-arrow-right"></i></button>
             </div>
-
-            
-            <div class="upload-column">
-                <h3 class="upload-title">Add Images</h3>
-                <div class="upload-buttons">
-                    <label class="upload-button">
-                        <i class="fas fa-camera"></i>
-                        <input type="file" accept="image/*" style="display: none;" />
-                    </label>
-                    <label class="upload-button">
-                        <i class="fas fa-image"></i>
-                        <input type="file" accept="image/*" style="display: none;" />
-                    </label>
+            <div class="dynamic-content">
+                <div id="messageBox" class="message-box">
+                    <h3 id="dynamicHeading">Please select a category on the left to input issue details</h3>
+                    <div class="instructions-overlay" id="instructions-overlay">
+                        <div class="instructions-box">
+                            <span class="close-button" onclick="toggleInstructions()">×</span>
+                            <p><b>Instructions for this step:</b></p>
+                            <ol> 
+                                <li>Select a category from the available options (e.g. Full bins, Cleanliness).</li>
+                                <li>Add relevant images either by choosing the Camera or Gallery buttons.</li>
+                                <li>Type issue details in the description section.</li>
+                                <li>Repeat the process for other categories as needed.</li>
+                                <li>Once done, click the right arrow to proceed to the next step.</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-          
-            <div class="text-content">
-                <!-- Comment section with question mark icon -->
-                <div class="comment-title-container">
-                    <h3 class="comment-title">Comments</h3>
-                    <i class="fas fa-question-circle question-mark" onclick="toggleInstructions()"></i>
+                <div id="contentContainer" style="display: none;">
+                    <div class="upload-title">Take photos via camera or browse gallery to upload</div>
+                    <div class="upload-column">
+                        <div class="upload-buttons">
+                            <label class="upload-button">
+                                <i class="fas fa-camera"></i>
+                                <input type="file" accept="image/*" capture="camera" style="display: none;" />
+                            </label>
+                            <label class="upload-button">
+                                <i class="fas fa-image"></i>
+                                <input type="file" accept="image/*" style="display: none;" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <textarea rows="5" maxlength="1000" placeholder="Describe the issue here..."></textarea>
+                    </div>
                 </div>
-
-                <textarea rows="5" maxlength="1000" placeholder="Type your comments here..."></textarea>
             </div>
         </div>
 
@@ -72,23 +85,12 @@
         </div>
     </div>
 
-<div class="instructions-overlay" id="instructions-overlay">
-        <div class="instructions-box">
-            <span class="close-button" onclick="toggleInstructions()">×</span>
-            <p><b>Instructions for submitting issues:</b></p>
-            <ol> 
-                <li>Select a category from the available options (e.g., Full bins, Cleanliness).</li>
-                <li>Add relevant images using the "Add Images" buttons.</li>
-                <li>Type your comments in the comments section.</li>
-                <li>Repeat the process for other categories as needed.</li>
-                <li>Once done, click "Next" to proceed to the next step.</li>
-            </ol>
-        </div>
+    <!--footer-->
+    <div class="footer">
+        Footer
     </div>
-    
-    <script>
 
-                // Toggle the instructions overlay visibility
+    <script>
         function toggleInstructions() {
             const overlay = document.getElementById('instructions-overlay');
             if (overlay.style.display === 'block') {
@@ -98,19 +100,22 @@
             }
         }
 
-        
         function selectOption(selectedButton) {
             const buttons = document.querySelectorAll('.option-button');
             buttons.forEach(button => {
                 button.classList.remove('active');
+                button.querySelector('i').classList.replace('fa-arrow-left', 'fa-arrow-right');
             });
             selectedButton.classList.add('active');
-            console.log('Selected option:', selectedButton.textContent);
+            selectedButton.querySelector('i').classList.replace('fa-arrow-right', 'fa-arrow-left');
+            
+            const selectedOptionText = selectedButton.textContent.trim();
+
+            document.getElementById('dynamicHeading').textContent = `Selected Option: ${selectedOptionText}`;
+            document.getElementById('contentContainer').style.display = 'block';
+            document.getElementById('messageBox').classList.add('selected');
+            //console.log('Selected option:', selectedOptionText);
         }
     </script>
-    <!--footer-->
-    <div class="footer">
-        Footer
-    </div>
 </body>
 </html>
