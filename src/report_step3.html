@@ -67,8 +67,33 @@
         </div>
     </div>
 
-
+<div class="instructions-overlay" id="instructions-overlay">
+        <div class="instructions-box">
+            <span class="close-button" onclick="toggleInstructions()">×</span>
+            <p><b>Instructions for submitting issues:</b></p>
+            <ol> 
+                <li>Select a category from the available options (e.g., Full bins, Cleanliness).</li>
+                <li>Add relevant images using the "Add Images" buttons.</li>
+                <li>Type your comments in the comments section.</li>
+                <li>Repeat the process for other categories as needed.</li>
+                <li>Once done, click "Next" to proceed to the next step.</li>
+            </ol>
+        </div>
+    </div>
+    
     <script>
+
+                // Toggle the instructions overlay visibility
+        function toggleInstructions() {
+            const overlay = document.getElementById('instructions-overlay');
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+            } else {
+                overlay.style.display = 'block';
+            }
+        }
+
+        
         function selectOption(selectedButton) {
             const buttons = document.querySelectorAll('.option-button');
             buttons.forEach(button => {
