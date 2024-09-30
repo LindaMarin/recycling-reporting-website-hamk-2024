@@ -32,6 +32,8 @@
     <!-- Step 1 -->
     <div id="step1" class="step active">
         <div class="container">
+            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions(1)"></i>
+
             <div class="address">
                 <input type="text" id="addressInput" class="textbox" readonly>
                 <div class="centered-medium-text">
@@ -53,12 +55,25 @@
                 </div>
             </div>
         </div>
+        <!-- Instructions Overlay for Step 1 -->
+        <div class="instructions-overlay" id="instructions-overlay-step1">
+            <div class="instructions-box">
+                <span class="close-button" onclick="toggleInstructions(1)">×</span>
+                <p><b>Instructions for submitting issues:</b></p>
+                <ol> 
+                    <li>If you used a QR-code to access this reporting page, the address should be correct.</li>
+                    <li>But if you came through the website, choose the correct address from below.</li>
+                </ol>
+            </div>
+        </div>
+
     </div>
 
 
     <!-- Step 2 -->
     <div id="step2" class="step">
         <div class="container">
+            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions(2)"></i>
             <div class="btn-group">
                 <div class="dropdown">
                     <button class="dropbtn">Waste sorting area</button>
@@ -109,12 +124,29 @@
                 </div>
             </div>
         </div>
+
+        <!-- Instructions Overlay for Step 2 -->
+        <div class="instructions-overlay" id="instructions-overlay-step2">
+            <div class="instructions-box">
+                <span class="close-button" onclick="toggleInstructions(2)">×</span>
+                <p><b>Instructions for submitting issues:</b></p>
+                <ol> 
+                    <li>1. Hover over a category from the three available options.</li>
+                    <li>2. A dropdown menu will appear, click on faced issues.</li>
+                    <li>3. All chosen issues will be listed below category buttons.</li>
+                    <li>4. Repeat the process for other categories as needed.</li>
+                    <li>5. Once all appropriate issues have been listed, click "Next" to proceed to the next step.</li>
+                </ol>
+            </div>
+        </div>
+
     </div>
 
 
-    <!-- Step 3 -->
+    <!-- Step 3 (Updated from report_step3.html) -->
     <div id="step3" class="step">
         <div class="container">
+            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions(3)"></i>
             <div class="input-box">
                 <div class="options">
                     <button id="fullbin" class="option-button" onclick="selectOption(this)">Full bins</button>
@@ -138,10 +170,16 @@
                 </div>
 
                 <div class="text-content">
-                    <h3 class="comment-title">Comments</h3>
+                    <!-- Comment section with question mark icon -->
+                    <div class="comment-title-container">
+                        <h3 class="comment-title">Comments</h3>
+                    </div>
+
                     <textarea rows="5" maxlength="1000" placeholder="Type your comments here..."></textarea>
                 </div>
             </div>
+
+            <!-- Action Buttons -->
             <div class="action">
                 <div class="previous-button">
                     <img src="../parts/left_arrow_icon.png" alt="Previous" onclick="prevStep(3)" />
@@ -151,37 +189,68 @@
                 </div>
             </div>
         </div>
+
+        <!-- Instructions Overlay for Step 3 -->
+        <div class="instructions-overlay" id="instructions-overlay-step3">
+            <div class="instructions-box">
+                <span class="close-button" onclick="toggleInstructions(3)">×</span>
+                <p><b>Instructions for submitting issues:</b></p>
+                <ol> 
+                    <li>Select a category from the available options (e.g., Full bins, Cleanliness).</li>
+                    <li>Add relevant images using the "Add Images" buttons.</li>
+                    <li>Type your comments in the comments section.</li>
+                    <li>Once done, click "Next" to proceed to the next step.</li>
+                </ol>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Step 4 -->
+    <!-- Step 4 (Updated from report_step4.html) -->
     <div id="step4" class="step">
         <div class="container">
             <div class="input-box">
-                <div class="heading3">Send the report</div>
+                <h3>Send the report</h3>
                 <div class="main-text">How would you like to submit this report?</div>
                 <ul class="options">
                     <li>
-                        <input type="radio" id="registered" name="report" value="registered">
-                        <label for="registered">As a registered user</label>
+                        <div class="radio-option">
+                            <input type="radio" id="registered" name="report" value="registered">
+                            <label for="registered">As a registered user</label>
+                        </div>
+                        <div class="description">
+                            <p>Your username will be publicly visible and your address will be shared with the receiving organization.</p>
+                        </div>
                     </li>
                     <li>
-                        <input type="radio" id="anonymous" name="report" value="anonymous">
-                        <label for="anonymous">Anonymously</label>
+                        <div class="radio-option">
+                            <input type="radio" id="anonymous" name="report" value="anonymous">
+                            <label for="anonymous">As an anonymous</label>
+                        </div>
+                        <div class="description">
+                            <p>No account required. This request will be sent to the receiving organization but you will not receive updates.</p>
+                        </div>
                     </li>
                     <li>
-                        <input type="radio" id="hide" name="report" value="hide">
-                        <label for="hide">Registered user but personal information hidden</label>
+                        <div class="radio-option">
+                            <input type="radio" id="hide" name="report" value="hide">
+                            <label for="hide">Hide your personal information</label>
+                        </div>
+                        <div class="description">
+                            <p>Your username and address will not be public and will be hidden from the receiving organization.</p>
+                        </div>
                     </li>
                 </ul>
-            </div>
-            <div class="action">
-                <div class="previous-button">
-                    <img src="../parts/left_arrow_icon.png" alt="Previous" onclick="prevStep(4)" />
-                </div>
-                <div class="finish-next">
-                    <div class="finish-text">FINISH</div>
-                    <div class="next-button">
-                        <img src="../parts/right_arrow_icon.png" alt="Next" onclick="nextStep(4)" />
+
+                <div class="action">
+                    <div class="previous-button">
+                        <img src="../parts/left_arrow_icon.png" alt="Previous" onclick="prevStep(4)" />
+                    </div>
+                    <div class="finish-next">
+                        <div class="finish-text">FINISH</div>
+                        <div class="next-button">
+                            <img src="../parts/right_arrow_icon.png" alt="Next" onclick="nextStep(4)" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -281,6 +350,12 @@
             console.log('Selected option:', selectedButton.textContent);
         }
         
+        function toggleInstructions(step) {
+            const overlay = document.getElementById(`instructions-overlay-step${step}`);
+            overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+        }
+
+
         window.onload = function() {
             // Get the current URL hash (the part after the #)
             const urlHash = window.location.hash;
