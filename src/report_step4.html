@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporting - Step 4</title>
-    <link rel="stylesheet" href="../parts/global.css">
     <link rel="stylesheet" href="../parts/style-step4.css">
 </head>
 
@@ -29,16 +28,31 @@
             <div class="main-text">How would you like to submit this report?</div>
             <ul class="options">
                 <li>
-                    <input type="radio" id="registered" name="report" value="registered">
-                    <label for="registered">As a registered user</label>
+                    <div class="radio-option">
+                        <input type="radio" id="registered" name="report" value="registered">
+                        <label for="registered">As a registered user</label>
+                    </div>
+                    <div class="description">
+                        <p>Your username will be publicly visible and your address will be shared with the receiving organization.</p>
+                    </div>
                 </li>
                 <li>
-                    <input type="radio" id="anonymous" name="report" value="anonymous">
-                    <label for="anonymous">As an anonymous</label>
+                    <div class="radio-option">
+                        <input type="radio" id="anonymous" name="report" value="anonymous">
+                        <label for="anonymous">As an anonymous</label>
+                    </div>
+                    <div class="description">
+                        <p>No account required. This request will be sent to the receiving organization but you will not receive updates.</p>
+                    </div>
                 </li>
                 <li>
-                    <input type="radio" id="hide" name="report" value="hide">
-                    <label for="hide">Hide your personal information</label>
+                    <div class="radio-option">
+                        <input type="radio" id="hide" name="report" value="hide">
+                        <label for="hide">Hide your personal information</label>
+                    </div>
+                    <div class="description">
+                        <p>Your username and address will not be public and will be hidden from the receiving organization.</p>
+                    </div>
                 </li>
             </ul>
 
