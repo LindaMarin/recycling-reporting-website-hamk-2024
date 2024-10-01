@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../parts/global.css">
     <link class="dynamic-css" rel="stylesheet" href="../parts/style-step1.css"> <!-- Initial CSS for Step 1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- For icons -->
+    <script src="../js/language.js"></script> <!-- Shared language script -->
     <style>
         .step {
             display: none;
@@ -17,12 +18,16 @@
     </style>
 </head>
 <body>
+    <div class="language-switcher">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('fi')">Suomi</button>
+    </div>
     <div class="navbar">
         <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../src/learn.html">Learn</a></li>
-            <li><a href="../src/status_map.html">Status map</a></li>
-            <li><a href="../src/combined_report.html" class="active">Reporting</a></li>
+            <li><a id="homeLink" href="../index.html">Home</a></li>
+            <li><a id="learnLink" href="../src/learn.html">Learn</a></li>
+            <li><a id="statusMapLink" href="../src/status_map.html">Status map</a></li>
+            <li><a id="reportLink" href="../src/combined_report.html" class="active">Reporting</a></li>
         </ul>
         <div class="user-icon">
             <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
@@ -37,13 +42,13 @@
             <div class="address">
                 <input type="text" id="addressInput" class="textbox" readonly>
                 <div class="centered-medium-text">
-                    <span>If the address above is not the address of<br>recycling area, choose it from below</span>
+                    <span id="addressInfo">If the address above is not the address of<br>recycling area, choose it from below</span>
                 </div>
                 <div class="arrow-down">
                     <span>&#x2193;</span>
                 </div>
                 <select class="textbox" id="addressDropdown">
-                    <option value="">Select an address</option>
+                    <option id="selectAddress" value="">Select an address</option>
                     <option value="address2">Street xx, 13100 Hml</option>
                     <option value="address3">Street xx, 13100 Hml</option>
                     <option value="address4">Street xx, 13100 Hml</option>
@@ -59,7 +64,7 @@
         <div class="instructions-overlay" id="instructions-overlay-step1">
             <div class="instructions-box">
                 <span class="close-button" onclick="toggleInstructions(1)">×</span>
-                <p><b>Instructions for submitting issues:</b></p>
+                <p><b id="step1InstructionsTitle">Instructions for submitting issues:</b></p>
                 <ol> 
                     <li>If you used a QR-code to access this reporting page, the address should be correct.</li>
                     <li>But if you came through the website, choose the correct address from below.</li>

@@ -1,0 +1,25 @@
+{
+    "title": "Recycling Reporting",
+    "home": "Home",
+    "learn": "Learn",
+    "statusMap": "Status Map",
+    "combinedReport": "Reporting",
+    "comingSoon": "Coming soon!",
+
+    "addressInfo": "If the address above is not the address of the recycling area, choose it from below",
+    "selectAddress": "Select an address",
+    "step1InstructionsTitle": "Instructions for submitting issues:",
+
+
+    "wasteSortingArea": "Waste sorting area",
+    "generalCleanliness": "General cleanliness",
+    "wasteBins": "Waste bins",
+    "selectedIssuesTitle": "Selected Issues:",
+    "step2InstructionsTitle": "Instructions for submitting issues:",
+    "step2Instruction1": "Hover over a category from the three available options.",
+    "step2Instruction2": "A dropdown menu will appear, click on faced issues.",
+    "step2Instruction3": "All chosen issues will be listed below category buttons.",
+    "step2Instruction4": "Repeat the process for other categories as needed.",
+    "step2Instruction5": "Once all appropriate issues have been listed, click 'Next' to proceed to the next step.",
+    "footerText": "Footer"
+}

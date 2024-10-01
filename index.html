@@ -5,22 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="parts/global.css">
+    <script src="js/language.js"></script> <!-- Shared language script -->
 </head>
 <body>
+    <div class="language-switcher">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('fi')">Suomi</button>
+    </div>    
     <div class="navbar">
         <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="src/learn.html">Learn</a></li>
-            <li><a href="src/status_map.html">Status map</a></li>
-            <li><a href="src/combined_report.html">Reporting</a></li>
+            <li><a id="homeLink" href="index.html" class="active">Home</a></li>
+            <li><a id="learnLink" href="src/learn.html">Learn</a></li>
+            <li><a id="statusMapLink" href="src/status_map.html">Status map</a></li>
+            <li><a id="combinedReportLink" href="src/combined_report.html">Reporting</a></li>
         </ul>
         <div class="user-icon">
             <img src="parts/user_app_basic_icon.png" alt="User Icon" />
         </div>
     </div>
 
-    <div class="container"style="padding-top: 200px; padding-bottom: 200px;" >
-        <span style="font-size: 30px; color: black; font-weight: bold;">Coming soon!</span>   
+    <div class="container" style="padding-top: 200px; padding-bottom: 200px;">
+        <span id="comingSoon" style="font-size: 30px; color: black; font-weight: bold;">Coming soon!</span>   
     </div>
 
     <div class="footer">
