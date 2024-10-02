@@ -52,3 +52,9 @@ ol {
   height: 70px !important;
   cursor: pointer;
 }
+h3 {
+  color: #155724;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
