@@ -106,12 +106,6 @@ body {
     width: 100%;
 }
 
-.previous-button img {
-    width: 70px !important;
-    height: 70px !important;
-    cursor: pointer;
-}
-
 .finish-next {
     display: flex;
     align-items: center;
@@ -185,4 +179,31 @@ body {
     float: right;
     font-size: 20px;
     color: red;
+}
+
+
+.language-switcher {
+    display: flex;
+    position: relative;
+}
+
+.language-switcher p {
+    color: #22351F;
+    font-size: 18px;
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+.language-switcher button {
+    color: #22351F;
+    font-weight: bold;
+    background-color: transparent;
+    border: #519D4B;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 10px 0px 0px 10px;
+}
+
+.language-switcher button:hover {
+    color: #F8FFF6;
 }
