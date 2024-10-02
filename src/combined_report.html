@@ -61,12 +61,12 @@
           class="fas fa-question-circle question-mark"
           onclick="toggleInstructions(1)"
         ></i>
-
+        <h3 id="header_step1">Location of recycling area</h3>
         <div class="address">
           <input type="text" id="addressInput" class="textbox" readonly />
           <div class="centered-medium-text">
             <span id="addressInfo"
-              >If the address above is not the address of<br />recycling area,
+              >If the address above is not the address of recycling area,
               choose it from below</span
             >
           </div>
@@ -119,7 +119,7 @@
     <!-- Step 2 -->
     <div id="step2" class="step">
       <div class="container">
-        <h3>Select all the categories you wish to report on.</h3>
+        <h3 id="header_step2">Select all the categories you wish to report on.</h3>
         <i
           class="fas fa-question-circle question-mark"
           onclick="toggleInstructions(2)"
@@ -267,19 +267,19 @@
             >
           </p>
           <ol>
-            <li id="step2Instruction1">
+            <li id="step2Instruction1" style="padding-bottom: 10px;">
               Hover over a category from the three available options.
             </li>
-            <li id="step2Instruction2">
+            <li id="step2Instruction2" style="padding-bottom: 10px;">
               A dropdown menu will appear, click on faced issues.
             </li>
-            <li id="step2Instruction3">
+            <li id="step2Instruction3" style="padding-bottom: 10px;">
               All chosen issues will be listed below category buttons.
             </li>
-            <li id="step2Instruction4">
+            <li id="step2Instruction4" style="padding-bottom: 10px;">
               Repeat the process for other categories as needed.
             </li>
-            <li id="step2Instruction5">
+            <li id="step2Instruction5" style="padding-bottom: 10px;">
               Once all appropriate issues have been listed, click "Next" to
               proceed to the next step.
             </li>
@@ -291,58 +291,42 @@
     <!-- Step 3 (Updated from report_step3.html) -->
     <div id="step3" class="step">
       <div class="container">
+        <i
+          class="fas fa-question-circle question-mark"
+          onclick="toggleInstructions(3)"
+        ></i>
         <h3 id="step3Title">Enter issue details</h3>
-        <div class="info">
-          <i
-            class="fas fa-question-circle question-mark"
-            onclick="toggleInstructions(3)"
-          ></i>
-        </div>
-
-            <div class="input-box">
-                <div class="cat-options">
-                    <button id="fullbin" class="option-button" onclick="selectOption(this)">Full bins <i class="fas fa-arrow-right"></i></button>
-                    <button id="cleanliness" class="option-button" onclick="selectOption(this)">Cleanliness <i class="fas fa-arrow-right"></i></button>
-                    <button id="misssortedwaste" class="option-button" onclick="selectOption(this)">Miss sorted waste <i class="fas fa-arrow-right"></i></button>
-                    <button id="labelsnotvisible" class="option-button" onclick="selectOption(this)">Labels not visible <i class="fas fa-arrow-right"></i></button>
+        <div class="input-box">
+            <div class="cat-options">
+                <button id="fullbin" class="option-button" onclick="selectOption(this)">Full bins <i class="fas fa-arrow-right"></i></button>
+                <button id="cleanliness" class="option-button" onclick="selectOption(this)">Cleanliness <i class="fas fa-arrow-right"></i></button>
+                <button id="misssortedwaste" class="option-button" onclick="selectOption(this)">Miss sorted waste <i class="fas fa-arrow-right"></i></button>
+                <button id="labelsnotvisible" class="option-button" onclick="selectOption(this)">Labels not visible <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="dynamic-content">
+                <div id="messageBox" class="message-box">
+                    <h3 id="step3DynamicHeading">Please select a category on the left to input issue details</h3>
                 </div>
-                <div class="dynamic-content">
-                    <div id="messageBox" class="message-box">
-                        <h3 id="step3DynamicHeading">Please select a category on the left to input issue details</h3>
-                        <div class="instructions-overlay" id="instructions-overlay">
-                            <div class="instructions-box">
-                                <span class="close-button" onclick="toggleInstructions(3)">×</span>
-                                <p><b id="step3InstructionsTitle">Instructions for submitting issues:</b></p>
-                                <ol> 
-                                    <li id="step3Instruction1">Select a category from the available options (e.g. Full bins, Cleanliness).</li>
-                                    <li id="step3Instruction2">Add relevant images either by choosing the Camera or Gallery buttons.</li>
-                                    <li id="step3Instruction3">Type issue details in the description section.</li>
-                                    <li id="step3Instruction4">Repeat the process for other categories as needed.</li>
-                                    <li id="step3Instruction5">Once done, click the right arrow to proceed to the next step.</li>
-                                </ol>
-                            </div>
+                <div id="contentContainer" style="display: none;">
+                    <div class="upload-title" id="step3UploadTitle">Take photos via camera or browse gallery to upload</div>
+                    <div class="upload-column">
+                        <div class="upload-buttons">
+                            <label class="upload-button">
+                                <i class="fas fa-camera"></i>
+                                <input type="file" accept="image/*" capture="camera" style="display: none;" />
+                            </label>
+                            <label class="upload-button">
+                                <i class="fas fa-image"></i>
+                                <input type="file" accept="image/*" style="display: none;" />
+                            </label>
                         </div>
                     </div>
-                    <div id="contentContainer" style="display: none;">
-                        <div class="upload-title" id="step3UploadTitle">Take photos via camera or browse gallery to upload</div>
-                        <div class="upload-column">
-                            <div class="upload-buttons">
-                                <label class="upload-button">
-                                    <i class="fas fa-camera"></i>
-                                    <input type="file" accept="image/*" capture="camera" style="display: none;" />
-                                </label>
-                                <label class="upload-button">
-                                    <i class="fas fa-image"></i>
-                                    <input type="file" accept="image/*" style="display: none;" />
-                                </label>
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <textarea rows="5" maxlength="1000" id="step3DescriptionPlaceholder" placeholder="Describe the issue here..."></textarea>
-                        </div>
+                    <div class="text-content">
+                        <textarea rows="5" maxlength="1000" id="step3DescriptionPlaceholder" placeholder="Describe the issue here..."></textarea>
                     </div>
                 </div>
             </div>
+        </div>
 
         <!-- Action Buttons -->
         <div class="action">
@@ -361,7 +345,22 @@
             />
           </div>
         </div>
+
       </div>
+      <div class="instructions-overlay" id="instructions-overlay">
+        <div class="instructions-box">
+            <span class="close-button" onclick="toggleInstructions(3)">×</span>
+            <p><b id="step3InstructionsTitle">Instructions for submitting issues:</b></p>
+            <ol> 
+                <li id="step3Instruction1">Select a category from the available options (e.g. Full bins, Cleanliness).</li>
+                <li id="step3Instruction2">Add relevant images either by choosing the Camera or Gallery buttons.</li>
+                <li id="step3Instruction3">Type issue details in the description section.</li>
+                <li id="step3Instruction4">Repeat the process for other categories as needed.</li>
+                <li id="step3Instruction5">Once done, click the right arrow to proceed to the next step.</li>
+            </ol>
+        </div>
+    </div>
+    </div>
     </div>
 
     <!-- Step 4 (Updated from report_step4.html) -->

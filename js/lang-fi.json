@@ -9,10 +9,12 @@
     "addressInfo": "Jos yllä oleva osoite ei ole kierrätysalueen osoite, valitse se alta",
     "selectAddress": "Valitse osoite",
 
+    "header_step1": "Kierrätys alueen osoite",
     "step1InstructionsTitle": "Ohjeet ongelmien raportointiin:",
     "step1Instruction1": "Jos käytit QR-koodia päästäksesi tälle raportointisivulle, osoite pitäisi olla oikea.", 
     "step1Instruction2": "Mutta jos tulit verkkosivuston kautta, tai jos osoite on kuitenkin väärä, valitse oikea osoite alta.",
 
+    "header_step2": "Valitse kaikki raportoitavat ongelmat.",
     "wasteSortingArea": "Kierrätysalue",
     "step2issue1": "Välineet",
     "step2issue2": "Ilmanvaihto",

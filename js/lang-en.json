@@ -6,12 +6,14 @@
     "combinedReport": "Reporting",
     "comingSoon": "Coming soon!",
 
+    "header_step1": "Location of recycling area",
     "addressInfo": "If the address above is not the address of the recycling area, choose it from below",
     "selectAddress": "Select an address",
     "step1InstructionsTitle": "Instructions for submitting issues:",
     "step1Instruction1": "If you used a QR-code to access this reporting page, the address should be correct.",
     "step1Instruction2": "But if you came through the website, choose the correct address from below.",
 
+    "header_step2": "Select all the issues you wish to report.",
     "wasteSortingArea": "Waste sorting area",
     "step2issue1": "Equipment",
     "step2issue2": "Ventilation",

@@ -55,6 +55,9 @@ function updateContent() {
     }
 
     // Step 1 translations
+    if (document.getElementById('header_step1')) {
+        document.getElementById('header_step1').textContent = translations.header_step1;
+    }
     if (document.getElementById('addressInfo')) {
         document.getElementById('addressInfo').textContent = translations.addressInfo;
     }
@@ -72,6 +75,9 @@ function updateContent() {
     }
 
     // Step 2 translations
+    if (document.getElementById('header_step2')) {
+        document.getElementById('header_step2').textContent = translations.header_step2;
+    }
     if (document.getElementById('wasteSortingArea')) {
         document.getElementById('wasteSortingArea').textContent = translations.wasteSortingArea;
     }
