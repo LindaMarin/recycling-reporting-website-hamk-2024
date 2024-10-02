@@ -16,6 +16,7 @@ function setLanguage(lang) {
 
             // Update the content immediately
             updateContent();
+            reinitializeEventListeners(); // Reattach event listeners after translation
         })
         .catch(error => console.error('Error loading language file:', error));
 }
@@ -28,6 +29,8 @@ function loadLanguage() {
 
 function updateContent() {
     document.title = translations.title;
+
+    console.log("updateContent called, reapplying translations...");
 
     // Navbar translations
     if (document.getElementById('homeLink')) {
@@ -109,17 +112,20 @@ function updateContent() {
     }
 
     // Step 3 translations
-    if (document.getElementById('step3option1')) {
-        document.getElementById('step3option1').textContent = translations.step3option1;
+    if (document.getElementById('step3Title')) {
+        document.getElementById('step3Title').textContent = translations.step3Title;
     }
-    if (document.getElementById('step3option2')) {
-        document.getElementById('step3option2').textContent = translations.step3option2;
+    if (document.getElementById('fullbin')) {
+        document.getElementById('fullbin').textContent = translations.fullbin;
     }
-    if (document.getElementById('step3option3')) {
-        document.getElementById('step3option3').textContent = translations.step3option3;
+    if (document.getElementById('cleanliness')) {
+        document.getElementById('cleanliness').textContent = translations.cleanliness;
     }
-    if (document.getElementById('step3option4')) {
-        document.getElementById('step3option4').textContent = translations.step3option4;
+    if (document.getElementById('misssortedwaste')) {
+        document.getElementById('misssortedwaste').textContent = translations.misssortedwaste;
+    }
+    if (document.getElementById('labelsnotvisible')) {
+        document.getElementById('labelsnotvisible').textContent = translations.labelsnotvisible;
     }
     if (document.getElementById('step3DynamicHeading')) {
         document.getElementById('step3DynamicHeading').textContent = translations.step3DynamicHeading;
@@ -185,8 +191,28 @@ function updateContent() {
     if (document.getElementById('returnHome')) {
         document.getElementById('returnHome').textContent = translations.returnHome;
     }
+
+    reinitializeEventListeners();
 }
 
+// Add a function to reinitialize all event listeners after translation
+function reinitializeEventListeners() {
+    const buttons = document.querySelectorAll('.option-button');
+    buttons.forEach(button => {
+        button.onclick = function() {
+            selectOption(this);
+        };
+    });
+
+    const instructionIcons = document.querySelectorAll('.fa-question-circle');
+    instructionIcons.forEach(icon => {
+        icon.onclick = function() {
+            const step = icon.closest('.step').id.replace('step', '');
+            toggleInstructions(step);
+        };
+    });
+
+    console.log("Event listeners reattached after translation.");
+}
 
 window.addEventListener('load', loadLanguage);
-
