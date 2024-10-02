@@ -189,6 +189,13 @@ body {
 }
 
 /* Step 3 personalization */
+.container h3 {
+    color: #155724;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .input-box {
     display: flex;
     justify-content: space-between;
