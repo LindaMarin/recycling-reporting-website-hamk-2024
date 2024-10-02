@@ -9,11 +9,26 @@
     "addressInfo": "If the address above is not the address of the recycling area, choose it from below",
     "selectAddress": "Select an address",
     "step1InstructionsTitle": "Instructions for submitting issues:",
-
+    "step1Instruction1": "If you used a QR-code to access this reporting page, the address should be correct.",
+    "step1Instruction2": "But if you came through the website, choose the correct address from below.",
 
     "wasteSortingArea": "Waste sorting area",
+    "step2issue1": "Equipment",
+    "step2issue2": "Ventilation",
+    "step2issue3": "Doors",
+    "step2issue4": "Floor",
+    "step2issue5": "Accessibility",
+    "step2issue6": "Distances",
+    "step2issue7": "Lighting",
+    "step2issue8": "Signage",
     "generalCleanliness": "General cleanliness",
+    "step2issue9": "Cleanliness",
+    "step2issue10": "Unwanted Animals",
     "wasteBins": "Waste bins",
+    "step2issue11": "Placement",
+    "step2issue12": "Filling Levels",
+    "step2issue13": "Quantity",
+    "step2issue14": "Signage",
     "selectedIssuesTitle": "Selected Issues:",
     "step2InstructionsTitle": "Instructions for submitting issues:",
     "step2Instruction1": "Hover over a category from the three available options.",
@@ -21,5 +36,35 @@
     "step2Instruction3": "All chosen issues will be listed below category buttons.",
     "step2Instruction4": "Repeat the process for other categories as needed.",
     "step2Instruction5": "Once all appropriate issues have been listed, click 'Next' to proceed to the next step.",
+    
+    "step3option1": "Full bins",
+    "step3option2": "Cleanliness",
+    "step3option3": "Miss sorted waste",
+    "step3option4": "Labels not visible",
+    "step3DynamicHeading": "Please select a category on the left to input issue details",
+    "step3UploadTitle": "Take photos via camera or browse gallery to upload",
+    "step3DescriptionPlaceholder": "Describe the issue here...",
+    "step3InstructionsTitle": "Instructions for submitting issues:",
+    "step3Instruction1": "Select a category from the available options (e.g. Full bins, Cleanliness).",
+    "step3Instruction2": "Add relevant images either by choosing the Camera or Gallery buttons.",
+    "step3Instruction3": "Type issue details in the description section.",
+    "step3Instruction4": "Repeat the process for other categories as needed.",
+    "step3Instruction5": "Once done, click the right arrow to proceed to the next step.",
+
+    "step4Title": "Send the report",
+    "step4SubmissionMethod": "How would you like to submit this report?",
+    "step4Option1": "As a registered user",
+    "step4Option1Description": "Your username will be publicly visible and your address will be shared with the receiving organization.",
+    "step4Option2": "As anonymous",
+    "step4Option2Description": "No account required. This request will be sent to the receiving organization but you will not receive updates.",
+    "step4Option3": "Hide your personal information",
+    "step4Option3Description": "Your username and address will not be public and will be hidden from the receiving organization.",
+    "step4FinishText": "FINISH",
+
+    "step5ThankYou": "Thank you for reporting!",
+    "returnHome": "Return to home page.",
+
     "footerText": "Footer"
+
+
 }

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recycling Reporting</title>
     <link rel="stylesheet" href="../parts/global.css">
-    <link class="dynamic-css" rel="stylesheet" href="../parts/style-step1.css"> <!-- Initial CSS for Step 1 -->
+    <!-- Initial CSS for Step 1 -->
+    <link class="dynamic-css" rel="stylesheet" href="../parts/style-step1.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- For icons -->
     <script src="../js/language.js"></script> <!-- Shared language script -->
     <style>
@@ -27,7 +28,7 @@
             <li><a id="homeLink" href="../index.html">Home</a></li>
             <li><a id="learnLink" href="../src/learn.html">Learn</a></li>
             <li><a id="statusMapLink" href="../src/status_map.html">Status map</a></li>
-            <li><a id="reportLink" href="../src/combined_report.html" class="active">Reporting</a></li>
+            <li><a id="combinedReportLink" href="../src/combined_report.html" class="active">Reporting</a></li>
         </ul>
         <div class="user-icon">
             <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
@@ -66,8 +67,8 @@
                 <span class="close-button" onclick="toggleInstructions(1)">×</span>
                 <p><b id="step1InstructionsTitle">Instructions for submitting issues:</b></p>
                 <ol> 
-                    <li>If you used a QR-code to access this reporting page, the address should be correct.</li>
-                    <li>But if you came through the website, choose the correct address from below.</li>
+                    <li id="step1Instruction1">If you used a QR-code to access this reporting page, the address should be correct.</li>
+                    <li id="step1Instruction2">But if you came through the website, choose the correct address from below.</li>
                 </ol>
             </div>
         </div>
@@ -81,41 +82,41 @@
             <i class="fas fa-question-circle question-mark" onclick="toggleInstructions(2)"></i>
             <div class="btn-group">
                 <div class="dropdown">
-                    <button class="dropbtn">Waste sorting area</button>
+                    <button id="wasteSortingArea" class="dropbtn">Waste sorting area</button>
                     <div class="dropdown-content">
-                        <button onclick="changeColor(this, 'Waste sorting area')">Equipment</button>
-                        <button onclick="changeColor(this, 'Waste sorting area')">Ventilation</button>
-                        <button onclick="changeColor(this, 'Waste sorting area')">Doors</button>
-                        <button onclick="changeColor(this, 'Waste sorting area')">Floor</button>
-                        <button onclick="changeColor(this, 'Waste sorting area')">Accessibility</button>
-                        <button onclick="changeColor(this, 'Waste sorting area')">Distances</button>
-                        <button onclick="changeColor(this, 'Waste sorting area')">Lighting</button>
-                        <button onclick="changeColor(this, 'Waste sorting area')">Signage</button>
+                        <button id="step2issue1" onclick="changeColor(this, 'Waste sorting area')">Equipment</button>
+                        <button id="step2issue2" onclick="changeColor(this, 'Waste sorting area')">Ventilation</button>
+                        <button id="step2issue3" onclick="changeColor(this, 'Waste sorting area')">Doors</button>
+                        <button id="step2issue4" onclick="changeColor(this, 'Waste sorting area')">Floor</button>
+                        <button id="step2issue5" onclick="changeColor(this, 'Waste sorting area')">Accessibility</button>
+                        <button id="step2issue6" onclick="changeColor(this, 'Waste sorting area')">Distances</button>
+                        <button id="step2issue7" onclick="changeColor(this, 'Waste sorting area')">Lighting</button>
+                        <button id="step2issue8" onclick="changeColor(this, 'Waste sorting area')">Signage</button>
                     </div>
                 </div>
     
                 <div class="dropdown">
-                    <button class="dropbtn">General cleanliness</button>
+                    <button id="generalCleanliness" class="dropbtn">General cleanliness</button>
                     <div class="dropdown-content">
-                        <button onclick="changeColor(this, 'General cleanliness')">Cleanliness</button>
-                        <button onclick="changeColor(this, 'General cleanliness')">Unwanted Animals</button>
+                        <button id="step2issue9" onclick="changeColor(this, 'General cleanliness')">Cleanliness</button>
+                        <button id="step2issue10" onclick="changeColor(this, 'General cleanliness')">Unwanted Animals</button>
                     </div>
                 </div>
     
                 <div class="dropdown">
-                    <button class="dropbtn">Waste bins</button>
+                    <button id="wasteBins" class="dropbtn">Waste bins</button>
                     <div class="dropdown-content">
-                        <button onclick="changeColor(this, 'Waste bins')">Placement</button>
-                        <button onclick="changeColor(this, 'Waste bins')">Filling Levels</button>
-                        <button onclick="changeColor(this, 'Waste bins')">Quantity</button>
-                        <button onclick="changeColor(this, 'Waste bins')">Signage</button>
+                        <button id="step2issue11" onclick="changeColor(this, 'Waste bins')">Placement</button>
+                        <button id="step2issue12" onclick="changeColor(this, 'Waste bins')">Filling Levels</button>
+                        <button id="step2issue13" onclick="changeColor(this, 'Waste bins')">Quantity</button>
+                        <button id="step2issue14" onclick="changeColor(this, 'Waste bins')">Signage</button>
                     </div>
                 </div>
             </div>
     
             <!-- Area to display clicked button text -->
             <div id="selected-items">
-                <h3>Selected Issues:</h3>
+                <h3 id="selectedIssuesTitle">Selected Issues:</h3>
                 <ul id="selected-list"></ul>
             </div>
     
@@ -134,13 +135,13 @@
         <div class="instructions-overlay" id="instructions-overlay-step2">
             <div class="instructions-box">
                 <span class="close-button" onclick="toggleInstructions(2)">×</span>
-                <p><b>Instructions for submitting issues:</b></p>
+                <p><b id="step2InstructionsTitle">Instructions for submitting issues:</b></p>
                 <ol> 
-                    <li>1. Hover over a category from the three available options.</li>
-                    <li>2. A dropdown menu will appear, click on faced issues.</li>
-                    <li>3. All chosen issues will be listed below category buttons.</li>
-                    <li>4. Repeat the process for other categories as needed.</li>
-                    <li>5. Once all appropriate issues have been listed, click "Next" to proceed to the next step.</li>
+                    <li id="step2Instruction1">Hover over a category from the three available options.</li>
+                    <li id="step2Instruction2">A dropdown menu will appear, click on faced issues.</li>
+                    <li id="step2Instruction3">All chosen issues will be listed below category buttons.</li>
+                    <li id="step2Instruction4">Repeat the process for other categories as needed.</li>
+                    <li id="step2Instruction5">Once all appropriate issues have been listed, click "Next" to proceed to the next step.</li>
                 </ol>
             </div>
         </div>
@@ -157,30 +158,30 @@
 
             <div class="input-box">
                 <div class="cat-options">
-                    <button id="fullbin" class="option-button" onclick="selectOption(this)">Full bins <i class="fas fa-arrow-right"></i></button>
-                    <button id="cleanliness" class="option-button" onclick="selectOption(this)">Cleanliness <i class="fas fa-arrow-right"></i></button>
-                    <button id="misssortedwaste" class="option-button" onclick="selectOption(this)">Miss sorted waste <i class="fas fa-arrow-right"></i></button>
-                    <button id="labelsnotvisible" class="option-button" onclick="selectOption(this)">Labels not visible <i class="fas fa-arrow-right"></i></button>
+                    <button id="step3option1" class="option-button" onclick="selectOption(this)">Full bins <i class="fas fa-arrow-right"></i></button>
+                    <button id="step3option2" class="option-button" onclick="selectOption(this)">Cleanliness <i class="fas fa-arrow-right"></i></button>
+                    <button id="step3option3" class="option-button" onclick="selectOption(this)">Miss sorted waste <i class="fas fa-arrow-right"></i></button>
+                    <button id="step3option4" class="option-button" onclick="selectOption(this)">Labels not visible <i class="fas fa-arrow-right"></i></button>
                 </div>
                 <div class="dynamic-content">
                     <div id="messageBox" class="message-box">
-                        <h3 id="dynamicHeading">Please select a category on the left to input issue details</h3>
+                        <h3 id="step3DynamicHeading">Please select a category on the left to input issue details</h3>
                         <div class="instructions-overlay" id="instructions-overlay-step3">
                             <div class="instructions-box">
                                 <span class="close-button" onclick="toggleInstructions(3)">×</span>
-                                <p><b>Instructions for this step:</b></p>
+                                <p><b id="step3InstructionsTitle">Instructions for submitting issues:</b></p>
                                 <ol> 
-                                    <li>Select a category from the available options (e.g. Full bins, Cleanliness).</li>
-                                    <li>Add relevant images either by choosing the Camera or Gallery buttons.</li>
-                                    <li>Type issue details in the description section.</li>
-                                    <li>Repeat the process for other categories as needed.</li>
-                                    <li>Once done, click the right arrow to proceed to the next step.</li>
+                                    <li id="step3Instruction1">Select a category from the available options (e.g. Full bins, Cleanliness).</li>
+                                    <li id="step3Instruction2">Add relevant images either by choosing the Camera or Gallery buttons.</li>
+                                    <li id="step3Instruction3">Type issue details in the description section.</li>
+                                    <li id="step3Instruction4">Repeat the process for other categories as needed.</li>
+                                    <li id="step3Instruction5">Once done, click the right arrow to proceed to the next step.</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                     <div id="contentContainer" style="display: none;">
-                        <div class="upload-title">Take photos via camera or browse gallery to upload</div>
+                        <div class="upload-title" id="step3UploadTitle">Take photos via camera or browse gallery to upload</div>
                         <div class="upload-column">
                             <div class="upload-buttons">
                                 <label class="upload-button">
@@ -194,7 +195,7 @@
                             </div>
                         </div>
                         <div class="text-content">
-                            <textarea rows="5" maxlength="1000" placeholder="Describe the issue here..."></textarea>
+                            <textarea rows="5" maxlength="1000" id="step3DescriptionPlaceholder" placeholder="Describe the issue here..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -212,38 +213,38 @@
         </div>
     </div>
 
-    <!-- Step 4 (Updated from report_step4.html) -->
-    <div id="step4" class="step">
+       <!-- Step 4 (Updated from report_step4.html) -->
+       <div id="step4" class="step">
         <div class="container">
             <div class="input-box">
-                <h3>Send the report</h3>
-                <div class="main-text">How would you like to submit this report?</div>
+                <h3 id="step4Title">Send the report</h3>
+                <div class="main-text" id="step4SubmissionMethod">How would you like to submit this report?</div>
                 <ul class="options">
                     <li>
                         <div class="radio-option">
                             <input type="radio" id="registered" name="report" value="registered">
-                            <label for="registered">As a registered user</label>
+                            <label for="registered" id="step4Option1">As a registered user</label>
                         </div>
                         <div class="description">
-                            <p>Your username will be publicly visible and your address will be shared with the receiving organization.</p>
+                            <p id="step4Option1Description">Your username will be publicly visible and your address will be shared with the receiving organization.</p>
                         </div>
                     </li>
                     <li>
                         <div class="radio-option">
                             <input type="radio" id="anonymous" name="report" value="anonymous">
-                            <label for="anonymous">As an anonymous</label>
+                            <label for="anonymous" id="step4Option2">As an anonymous</label>
                         </div>
                         <div class="description">
-                            <p>No account required. This request will be sent to the receiving organization but you will not receive updates.</p>
+                            <p id="step4Option2Description">No account required. This request will be sent to the receiving organization but you will not receive updates.</p>
                         </div>
                     </li>
                     <li>
                         <div class="radio-option">
                             <input type="radio" id="hide" name="report" value="hide">
-                            <label for="hide">Hide your personal information</label>
+                            <label for="hide" id="step4Option3">Hide your personal information</label>
                         </div>
                         <div class="description">
-                            <p>Your username and address will not be public and will be hidden from the receiving organization.</p>
+                            <p id="step4Option3Description">Your username and address will not be public and will be hidden from the receiving organization.</p>
                         </div>
                     </li>
                 </ul>
@@ -253,7 +254,7 @@
                         <img src="../parts/left_arrow_icon.png" alt="Previous" onclick="prevStep(4)" />
                     </div>
                     <div class="finish-next">
-                        <div class="finish-text">FINISH</div>
+                        <div class="finish-text" id="step4FinishText">FINISH</div>
                         <div class="next-button">
                             <img src="../parts/right_arrow_icon.png" alt="Next" onclick="nextStep(4)" />
                         </div>
@@ -266,14 +267,14 @@
     <!-- Step 5, confirmation -->
     <div id="step5" class="step">
         <div class="container">
-        <h1>Thank you for reporting!</h1>
+        <h1 id="step5ThankYou">Thank you for reporting!</h1>
             <div class="return_home">
-            <a class="button" href="../index.html">Return to home page.</a>
+            <a class="button" href="../index.html" id="returnHome">Return to home page</a>
             </div>
         </div>
     </div>
     
-    <div class="footer">
+    <div class="footer" id="footerText">
         Footer
     </div>
 
@@ -313,18 +314,27 @@
             if (nextStepElement) {
                 document.getElementById(`step${currentStep}`).classList.remove('active');
                 nextStepElement.classList.add('active');
+                
                 updateStepCSS(currentStep + 1); // Update the CSS for the next step
+
+                // Call updateContent() to apply translations to the newly active step
+                updateContent();
             }
         }
-        
+
         function prevStep(currentStep) {
             const prevStepElement = document.getElementById(`step${currentStep - 1}`);
             if (prevStepElement) {
                 document.getElementById(`step${currentStep}`).classList.remove('active');
                 prevStepElement.classList.add('active');
+                
                 updateStepCSS(currentStep - 1); // Update the CSS for the previous step
+
+                // Call updateContent() to apply translations to the newly active step
+                updateContent();
             }
         }
+
 
         function changeColor(button, category) {
             button.classList.toggle("clicked"); // Toggle the color change
@@ -359,35 +369,32 @@
             
             const selectedOptionText = selectedButton.textContent.trim();
 
-            document.getElementById('dynamicHeading').textContent = `Selected Option: ${selectedOptionText}`;
+            document.getElementById('step3DynamicHeading').textContent = `Selected Option: ${selectedOptionText}`;
             document.getElementById('contentContainer').style.display = 'block';
             document.getElementById('messageBox').classList.add('selected');
-        } // End of Step 3 functions
+        } 
         
         function toggleInstructions(step) {
             const overlay = document.getElementById(`instructions-overlay-step${step}`);
             overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+
+            // Apply translations after the instructions are shown
+            updateContent();
         }
 
 
-        window.onload = function() {
-            // Get the current URL hash (the part after the #)
+        window.addEventListener('load', function() {
             const urlHash = window.location.hash;
-
-            // Check if there's a hash part in the URL
             if (urlHash) {
-                // Remove the '#' and decode the URI component (to handle any encoded characters)
                 const address = decodeURIComponent(urlHash.substring(1));
-
-                // Set the address in the first input field
                 const addressInput = document.getElementById('addressInput');
                 addressInput.value = address;
             } else {
-                // If no address in the URL, you can set a default value
                 const addressInput = document.getElementById('addressInput');
                 addressInput.value = "Street xx, 13100 Hml"; // Default value
             }
-        };
+        });
+
     </script>
 </body>
 </html>
