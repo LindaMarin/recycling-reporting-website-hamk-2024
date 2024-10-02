@@ -25,3 +25,7 @@
     color: green;
     margin-bottom: 20px;
 }
+
+.previous-button img {
+    display: none;
+}

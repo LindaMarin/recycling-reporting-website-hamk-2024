@@ -202,8 +202,8 @@ body {
 }
 
 .previous-button img {
-    width: 90px;
-    height: 90px;
+    width: 70px !important;
+    height: 70px !important;
     cursor: pointer;
 }
 
@@ -222,8 +222,8 @@ body {
 }
 
 .next-button img {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     margin-left: 10px;
     cursor: pointer;
 }

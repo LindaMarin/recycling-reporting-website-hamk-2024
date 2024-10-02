@@ -21,6 +21,7 @@
 <body>
     <div class="language-switcher">
         <button onclick="setLanguage('en')">English</button>
+        <p>|</p>
         <button onclick="setLanguage('fi')">Suomi</button>
     </div>
     <div class="navbar">
@@ -56,6 +57,9 @@
                 </select>
             </div>
             <div class="action">
+                <div class="previous-button">
+                    <img src="../parts/left_arrow_icon.png" alt="Previous" />
+                </div>
                 <div class="next-button">
                     <img src="../parts/right_arrow_icon.png" alt="Next" onclick="nextStep(1)" />
                 </div>

@@ -46,3 +46,9 @@ ol {
   text-align: left;
   list-style: none;
 }
+
+.previous-button img {
+  width: 70px !important;
+  height: 70px !important;
+  cursor: pointer;
+}
