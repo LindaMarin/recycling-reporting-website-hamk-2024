@@ -227,3 +227,29 @@ body {
     margin-left: 10px;
     cursor: pointer;
 }
+
+.language-switcher {
+    display: flex;
+    position: relative;
+}
+
+.language-switcher p {
+    color: #F8FFF6;
+    font-size: 18px;
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+.language-switcher button {
+    color: #F8FFF6;
+    font-weight: bold;
+    background-color: transparent;
+    border: #519D4B;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 10px 0px 0px 10px;
+}
+
+.language-switcher button:hover {
+    color: #22351F;
+}

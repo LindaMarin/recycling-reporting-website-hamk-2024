@@ -9,6 +9,11 @@
 
 <body>
     <!--header-->
+    <div class="language-switcher">
+        <button onclick="setLanguage('en')">English</button>
+        <p>|</p>
+        <button onclick="setLanguage('fi')">Suomi</button>
+    </div>
     <div class="navbar">
         <ul>
             <li><a href="../index.html">Home</a></li>
@@ -60,12 +65,12 @@
                 <a class="previous-button" href="report_step3.html">
                     <img src="/parts/left_arrow_icon.png" alt="Previous" />
                 </a>
-                <div class="finish-next">
+                <a class="finish-next" href="confirmation.html">
                     <div class="finish-text">FINISH</div>
                     <div class="next-button">
                         <img src="/parts/right_arrow_icon.png" alt="Next" />
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
