@@ -291,21 +291,42 @@
     <!-- Step 3 (Updated from report_step3.html) -->
     <div id="step3" class="step">
       <div class="container">
-        <i
-          class="fas fa-question-circle question-mark"
-          onclick="toggleInstructions(3)"
-        ></i>
-        <h3 id="step3Title">Enter issue details</h3>
+        <h3 id="step3Title">Enter issue details </h3>
+        <div class="info">
+            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions(3)"></i>
+        </div>
+
         <div class="input-box">
             <div class="cat-options">
-                <button id="fullbin" class="option-button" onclick="selectOption(this)">Full bins <i class="fas fa-arrow-right"></i></button>
-                <button id="cleanliness" class="option-button" onclick="selectOption(this)">Cleanliness <i class="fas fa-arrow-right"></i></button>
-                <button id="misssortedwaste" class="option-button" onclick="selectOption(this)">Miss sorted waste <i class="fas fa-arrow-right"></i></button>
-                <button id="labelsnotvisible" class="option-button" onclick="selectOption(this)">Labels not visible <i class="fas fa-arrow-right"></i></button>
+                <button id="step3option1" class="option-button" onclick="selectOption(this)">
+                    Full bins <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="step3option2" class="option-button" onclick="selectOption(this)">
+                    Cleanliness <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="step3option3" class="option-button" onclick="selectOption(this)">
+                    Miss sorted waste <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="step3option4" class="option-button" onclick="selectOption(this)">
+                    Labels not visible <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
             <div class="dynamic-content">
                 <div id="messageBox" class="message-box">
                     <h3 id="step3DynamicHeading">Please select a category on the left to input issue details</h3>
+                    <div class="instructions-overlay" id="instructions-overlay-step3">
+                        <div class="instructions-box">
+                            <span class="close-button" onclick="toggleInstructions(3)">×</span>
+                            <p><b id="step3InstructionsTitle">Instructions for submitting issues:</b></p>
+                            <ol> 
+                                <li id="step3Instruction1">Select a category from the available options (e.g. Full bins, Cleanliness).</li>
+                                <li id="step3Instruction2">Add relevant images either by choosing the Camera or Gallery buttons.</li>
+                                <li id="step3Instruction3">Type issue details in the description section.</li>
+                                <li id="step3Instruction4">Repeat the process for other categories as needed.</li>
+                                <li id="step3Instruction5">Once done, click the right arrow to proceed to the next step.</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
                 <div id="contentContainer" style="display: none;">
                     <div class="upload-title" id="step3UploadTitle">Take photos via camera or browse gallery to upload</div>
@@ -345,22 +366,7 @@
             />
           </div>
         </div>
-
       </div>
-      <div class="instructions-overlay" id="instructions-overlay">
-        <div class="instructions-box">
-            <span class="close-button" onclick="toggleInstructions(3)">×</span>
-            <p><b id="step3InstructionsTitle">Instructions for submitting issues:</b></p>
-            <ol> 
-                <li id="step3Instruction1">Select a category from the available options (e.g. Full bins, Cleanliness).</li>
-                <li id="step3Instruction2">Add relevant images either by choosing the Camera or Gallery buttons.</li>
-                <li id="step3Instruction3">Type issue details in the description section.</li>
-                <li id="step3Instruction4">Repeat the process for other categories as needed.</li>
-                <li id="step3Instruction5">Once done, click the right arrow to proceed to the next step.</li>
-            </ol>
-        </div>
-    </div>
-    </div>
     </div>
 
     <!-- Step 4 (Updated from report_step4.html) -->
@@ -452,9 +458,8 @@
       <div class="container">
         <h1 id="step5ThankYou">Thank you for reporting!</h1>
         <div class="return_home">
-          <a class="button" href="../index.html" id="returnHome"
-            >Return to home page</a
-          >
+          <a class="button" href="../index.html" id="returnHome" style="text-decoration: none;">
+            Return to home page</a>
         </div>
       </div>
     </div>
@@ -551,32 +556,37 @@
         }
       }
 
-        function toggleInstructions(step) {
-            const overlay = document.getElementById(`instructions-overlay-step${step}`);
-            overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+      function toggleInstructions(step) {
+          const overlay = document.getElementById(`instructions-overlay-step${step}`);
+          overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
 
-            // Apply translations after the instructions are shown
-            updateContent();
-        }
+          // Apply translations after the instructions are shown
+          updateContent();
+      }
 
-        // Step 3 functions
-        function selectOption(selectedButton) {
-            const buttons = document.querySelectorAll('.option-button');
-            buttons.forEach(button => {
-                button.classList.remove('active');
-                button.querySelector('i').classList.replace('fa-arrow-left', 'fa-arrow-right'); // Reset the arrow for all buttons
-            });
-
-            // Activate the selected button and change its arrow
-            selectedButton.classList.add('active');
-            selectedButton.querySelector('i').classList.replace('fa-arrow-right', 'fa-arrow-left');
-
-            // Show the content container and update the heading
-            const selectedOptionText = selectedButton.textContent.trim();
-            document.getElementById('step3DynamicHeading').textContent = `Selected Option: ${selectedOptionText}`;
-            document.getElementById('contentContainer').style.display = 'block'; // Ensure the contentContainer is visible
-            document.getElementById('messageBox').classList.add('selected');
-        }
+      // Step 3 functions
+      function selectOption(selectedButton) {
+          const buttons = document.querySelectorAll('.option-button');
+          
+          buttons.forEach(button => {
+              button.classList.remove('active');
+              const icon = button.querySelector('i');
+              if (icon) {
+                  icon.classList.replace('fa-arrow-left', 'fa-arrow-right');
+              }
+          });
+          
+          selectedButton.classList.add('active');
+          const selectedIcon = selectedButton.querySelector('i');
+          if (selectedIcon) {
+              selectedIcon.classList.replace('fa-arrow-right', 'fa-arrow-left');
+          }
+          
+          const selectedOptionText = selectedButton.textContent.trim();
+          document.getElementById('step3DynamicHeading').textContent = `Selected Option: ${selectedOptionText}`;
+          document.getElementById('contentContainer').style.display = 'block';
+          document.getElementById('messageBox').classList.add('selected');
+      }
 
       window.addEventListener("load", function () {
         const urlHash = window.location.hash;

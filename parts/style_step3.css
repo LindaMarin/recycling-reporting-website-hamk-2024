@@ -186,6 +186,7 @@ body {
     color: #8CC751;
     cursor: pointer;
     right: 0 !important;
+    top: -74px !important;
 }
 
 /* Step 3 personalization */

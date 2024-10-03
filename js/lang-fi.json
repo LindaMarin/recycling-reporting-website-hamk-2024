@@ -14,7 +14,7 @@
     "step1Instruction1": "Jos käytit QR-koodia päästäksesi tälle raportointisivulle, osoite pitäisi olla oikea.", 
     "step1Instruction2": "Mutta jos tulit verkkosivuston kautta, tai jos osoite on kuitenkin väärä, valitse oikea osoite alta.",
 
-    "header_step2": "Valitse kaikki raportoitavat ongelmat.",
+    "header_step2": "Valitse kaikki raportoitavat ongelmat",
     "wasteSortingArea": "Kierrätysalue",
     "step2issue1": "Välineet",
     "step2issue2": "Ilmanvaihto",
@@ -41,10 +41,10 @@
     "step2Instruction5": "Kun olet valinnut kaikki tarvitsemasi vaihtoehdot, siirry eteenpäin klikkaamalla oikeanpuoleista nuolta.",
     
     "step3Title":"Täytä ongelmakohtaiset lisätiedot",
-    "fullbin": "Astiat täynnä",
-    "cleanliness": "Siisteys",
-    "misssortedwaste": "Väärin lajiteltu jäte",
-    "labelsnotvisible": "Tarrat eivät ole näkyvissä",
+    "step3option1": "Astiat täynnä",
+    "step3option2": "Siisteys",
+    "step3option3": "Väärin lajiteltu jäte",
+    "step3option4": "Tarrat eivät ole näkyvissä",
     "step3DynamicHeading": "Valitse kategoria vasemmalta syöttääksesi ongelman yksityiskohdat",
     "step3UploadTitle": "Ota valokuvia kameralla tai selaa galleriaa ladataksesi kuvia",
     "step3DescriptionPlaceholder": "Kuvaile ongelma tähän...",
@@ -66,7 +66,7 @@
     "step4FinishText": "VIIMEISTELE",
 
     "step5ThankYou": "Kiitos raportoinnista!",
-    "returnHome": "Palaa etusivulle.",
+    "returnHome": "Palaa etusivulle",
     
     "footerText": "Ala-palkki"
 }

@@ -13,7 +13,7 @@
     "step1Instruction1": "If you used a QR-code to access this reporting page, the address should be correct.",
     "step1Instruction2": "But if you came through the website, choose the correct address from below.",
 
-    "header_step2": "Select all the issues you wish to report.",
+    "header_step2": "Select all the issues you wish to report",
     "wasteSortingArea": "Waste sorting area",
     "step2issue1": "Equipment",
     "step2issue2": "Ventilation",
@@ -40,10 +40,10 @@
     "step2Instruction5": "Once all appropriate issues have been listed, click 'Next' to proceed to the next step.",
     
     "step3Title":"Enter issue details",
-    "fullbin": "Full bins",
-    "cleanliness": "Cleanliness",
-    "misssortedwaste": "Miss sorted waste",
-    "labelsnotvisible": "Labels not visible",
+    "step3option1": "Full bins",
+    "step3option2": "Cleanliness",
+    "step3option3": "Miss sorted waste",
+    "step3option14": "Labels not visible",
     "step3DynamicHeading": "Please select a category on the left to input issue details",
     "step3UploadTitle": "Take photos via camera or browse gallery to upload",
     "step3DescriptionPlaceholder": "Describe the issue here...",
@@ -65,7 +65,7 @@
     "step4FinishText": "FINISH",
 
     "step5ThankYou": "Thank you for reporting!",
-    "returnHome": "Return to home page.",
+    "returnHome": "Return to home page",
 
     "footerText": "Footer"
 
