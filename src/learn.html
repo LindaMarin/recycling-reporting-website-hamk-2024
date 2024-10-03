@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Page</title>
-    <link rel="stylesheet" href="../parts/global.css">
+    <link rel="stylesheet" href="../parts/learnteststyle.css">
     <script src="../js/language.js"></script> <!-- Shared language script -->
 </head>
 <body>
@@ -24,13 +24,82 @@
             <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
         </div>
     </div>
+    <div class="container">
+        <div class="title">
+            <h1>Learn about recycling here</h1>
+            <p><i>Please select a category by pressing a button learn more about it.</i></p>
 
-    <div class="container" style="padding-top: 200px; padding-bottom: 200px;" >
-        <span id="comingSoon" style="font-size: 30px; color: black; font-weight: bold;">Coming soon!</span>
+        </div>
+        <div class="recycling">  
+            <div>
+                <input id="bio" type='button' value='Bio' onclick="Selectedbiojate(this.id)">
+            </div>
+            <div>
+                <input id='metal' type='button' value='Metal' onclick="Selectedbiojate(this.id)">
+            </div>
+            <div>
+                <input id='paper' type='button' value='Paper' onclick="Selectedbiojate(this.id)">
+            </div>
+            <div>
+                <input id='cardboard' type='button' value='Cardboard' onclick="Selectedbiojate(this.id)">
+            </div>
+            <div>
+                <input id='plastic' type='button' value='Plastic' onclick="Selectedbiojate(this.id)">
+            </div>
+            <div>
+                <input id='mixed' type='button' value='Mixed waste' onclick="Selectedbiojate(this.id)">
+            </div>
+            <!-- <div>
+                <input id='' type='button' value='test' onclick="Selectedbiojate(this.id)">
+            </div>
+            <div>
+                <input id='metallijate' type='button' value='test' onclick="Selectedbiojate(this.id)">
+            </div> -->
+        </div>
+        <hr class="BlackLine">
+        <div class="ChosenRecycling">
+            <h3 id="titleforselectedrecycling"></h3>
+            <div class="container2">
+                <a id="picturefromselectedrecycling"></a>
+                <p id="selectedrecycling"><br><br><br><br><br><br><br><br><br><br><br></p>
+            </div>
+        </div>
     </div>
-
     <div class="footer">
         Footer
     </div>
+    <script>
+        function Selectedbiojate(buttonid) {
+            var z = document.getElementById("titleforselectedrecycling")
+            var x = document.getElementById("selectedrecycling")
+            var v = document.getElementById("picturefromselectedrecycling")
+            if(buttonid=="bio"){
+                z.innerHTML="Bio recycling"
+                x.innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quis ducimus officiis quae deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                v.innerHTML='<img src="../parts/biorecycling.jpg" alt="test" style="height: 300px;">'
+                // style="width: 300px;"
+            } if (buttonid=="metal") {
+                z.innerHTML="Metal recycling"
+                x.innerHTML="Lorem ipsum dolor amet consectetur adipisicing elit. Adipisci quis s officiis quae deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                v.innerHTML='<img src="../parts/metalrecycling.jpg" alt="test" style="height: 300px;">'
+            } if (buttonid=="paper"){
+                z.innerHTML="Paper recycling"
+                x.innerHTML="Lorem ipsum dolor sit ducimus officiis amet consectetur adipisicing elit. Adipisci quis ducimus officiis quae deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                v.innerHTML='<img src="../parts/paperrecycling.jpg" alt="test" style="height: 300px;">'
+            } if (buttonid=="cardboard") {
+                z.innerHTML="Cardboard recycling"
+                x.innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quis ducimus officiis quae deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                v.innerHTML='<img src="../parts/cardboardrecycling.jpg" alt="test" style="height: 300px;">'
+            } if (buttonid=="plastic") {
+                z.innerHTML="Plastic recycling"
+                x.innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quis ducimus officiis nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                v.innerHTML='<img src="../parts/plasticrecycling.jpg" alt="test" style="height: 300px;">'
+            } if (buttonid=="mixed") {
+                z.innerHTML="Mixed recycling"
+                x.innerHTML="Lorem ipsum dolor sit amet consectetur. Deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat nemo dolore minus."
+                v.innerHTML='<img src="../parts/mixedwaste" alt="test">'
+            }
+        }
+    </script>
 </body>
 </html>
