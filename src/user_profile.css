@@ -1,0 +1,63 @@
+
+.user-info {
+    margin-bottom: 30px;
+    color: #004d00;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.user-info h2 {
+
+    font-size: 28px;
+    font-weight: bold;
+    color: #004d00;
+    margin-bottom: 15px;
+}
+
+.user-info p {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.reports-section {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reports-section h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #004d00;
+    color: white;
+    font-weight: bold;
+}
+
+
+table tr:hover {
+    background-color: rgba(81, 157, 75, 0.2);
+}
+
+table td {
+    color: #004d00;
+}
+
