@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../parts/admin.css">
+    <script src="../js/language.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+</head>
+<body>
+    <div class="language-switcher">
+        <button onclick="setLanguage('en')">English</button>
+        <p>|</p>
+        <button onclick="setLanguage('fi')">Suomi</button>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+        <div class="user-icon">
+            <img src="../parts/user_app_basic_icon.png" alt="User Icon">
+        </div>
+    </div>
+
+    <!-- Admin Container -->
+    <div class="container">
+        <div class="info">
+            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions()"></i>
+        </div>
+        <h2>Admin Dashboard</h2>
+
+        <!-- Filter Options -->
+        <div class="filter-options">
+            <button>All Issues</button>
+            <button>Open Issues</button>
+            <button>Resolved Issues</button>
+        </div>
+
+        <!-- Report Section -->
+        <div class="report-section">
+            <h3>Reported Issues</h3>
+
+            <!-- Example Report Item -->
+            <div class="report-item">
+                <p><strong>Issue ID:</strong> 201</p>
+                <p><strong>Address:</strong> 123 Main St, Springfield</p>
+                <p><strong>Issues and Categories:</strong></p>
+                <ol>
+                    <li>Waste Sorting Area - Equipment</li>
+                    <li>Waste Bins - Filling Levels</li>
+                </ol>
+                <p><strong>Submitted by:</strong> John Doe (Logged User)</p>
+                <p><strong>Status:</strong> <span class="status" id="status-201">Open</span></p>
+                <button onclick="reopenIssue('201')">Open</button>
+                <button onclick="markInProgress('201')">In Progress</button>
+                <button onclick="markAsResolved('201')">Mark as Resolved</button>
+                <button onclick="viewDetails('201')">View Details</button>
+            </div>
+
+            <div class="report-item">
+                <p><strong>Issue ID:</strong> 202</p>
+                <p><strong>Address:</strong> 456 Elm St, Springfield</p>
+                <p><strong>Issues and Categories:</strong></p>
+                <ol>
+                    <li>General Cleanliness - Cleanliness</li>
+                </ol>
+                <p><strong>Submitted by:</strong> Anonymous</p>
+                <p><strong>Status:</strong> <span class="status" id="status-202">Open</span></p>
+                <button onclick="reopenIssue('202')">Open</button>
+                <button onclick="markInProgress('202')">In Progress</button>
+                <button onclick="markAsResolved('202')">Mark as Resolved</button>
+                <button onclick="viewDetails('202')">View Details</button>
+            </div>
+
+            <div class="report-item">
+                <p><strong>Issue ID:</strong> 203</p>
+                <p><strong>Address:</strong> 789 Oak St, Springfield</p>
+                <p><strong>Issues and Categories:</strong></p>
+                <ol>
+                    <li>Waste Bins - Signage</li>
+                    <li>Waste Sorting Area - Ventilation</li>
+                </ol>
+                <p><strong>Submitted by:</strong> Jane Smith (Logged User)</p>
+                <p><strong>Status:</strong> <span class="status" id="status-203">Resolved</span></p>
+                <button onclick="reopenIssue('203')">Open</button>
+                <button onclick="markInProgress('203')">In Progress</button>
+                <button onclick="reopenIssue('203')">Reopen Issue</button>
+                <button onclick="viewDetails('203')">View Details</button>
+            </div>
+
+            <!-- Additional Report Items -->
+            <div class="report-item">
+                <p><strong>Issue ID:</strong> 204</p>
+                <p><strong>Address:</strong> 321 Maple St, Springfield</p>
+                <p><strong>Issues and Categories:</strong></p>
+                <ol>
+                    <li>General Cleanliness - Unwanted Animals</li>
+                </ol>
+                <p><strong>Submitted by:</strong> Alice Johnson (Logged User)</p>
+                <p><strong>Status:</strong> <span class="status" id="status-204">Open</span></p>
+                <button onclick="reopenIssue('204')">Open</button>
+                <button onclick="markInProgress('204')">In Progress</button>
+                <button onclick="markAsResolved('204')">Mark as Resolved</button>
+                <button onclick="viewDetails('204')">View Details</button>
+            </div>
+
+            <div class="report-item">
+                <p><strong>Issue ID:</strong> 205</p>
+                <p><strong>Address:</strong> 654 Pine St, Springfield</p>
+                <p><strong>Issues and Categories:</strong></p>
+                <ol>
+                    <li>Waste Bins - Filling Levels</li>
+                </ol>
+                <p><strong>Submitted by:</strong> Mark Davis (Anonymous)</p>
+                <p><strong>Status:</strong> <span class="status" id="status-205">Open</span></p>
+                <button onclick="reopenIssue('205')">Open</button>
+                <button onclick="markInProgress('205')">In Progress</button>
+                <button onclick="markAsResolved('205')">Mark as Resolved</button>
+                <button onclick="viewDetails('205')">View Details</button>
+            </div>
+
+        </div> <!-- End of Report Section -->
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Admin Dashboard - All Rights Reserved
+    </div>
+
+    <!-- Instructions overlay -->
+    <div class="instructions-overlay" id="instructions-overlay" style="display:none;">
+        <div class="instructions-box">
+            <span class="close-button" onclick="toggleInstructions()">×</span>
+            <p><b>Instructions for this dashboard:</b></p>
+            <ol>
+                <li>Use the filter options to display different sets of issues (e.g. All Issues, Open Issues, Resolved Issues).</li>
+                <li>Review reported issues by viewing details or marking issues as resolved.</li>
+                <li>You can reopen resolved issues if necessary.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function toggleInstructions() {
+            const overlay = document.getElementById('instructions-overlay');
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+            } else {
+                overlay.style.display = 'block';
+            }
+        }
+
+        function viewDetails(issueId) {
+            alert("View details for Issue ID: " + issueId);
+        }
+
+        function reopenIssue(issueId) {
+            document.getElementById('status-' + issueId).innerText = 'Open';
+            alert("Issue ID " + issueId + " Issue Reopened.");
+        }
+
+        function markInProgress(issueId) {
+            document.getElementById('status-' + issueId).innerText = 'In Progress';
+            alert("Issue ID " + issueId + " marked as In Progress.");
+        }
+
+        function markAsResolved(issueId) {
+            document.getElementById('status-' + issueId).innerText = 'Resolved';
+            alert("Issue ID " + issueId + " marked as resolved.");
+        }
+    </script>
+</body>
+</html>
