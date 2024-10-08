@@ -4,31 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="parts/global.css">
-    <script src="js/language.js"></script> <!-- Shared language script -->
+    <link rel="stylesheet" href="./parts/global.css">
+    <link rel="stylesheet" href="./parts/index.css">
+    <script src="./js/language.js"></script> <!-- Shared language script -->
 </head>
+
 <body>
-    <div class="language-switcher">
-        <button onclick="setLanguage('en')">English</button>
-        <p>|</p>
-        <button onclick="setLanguage('fi')">Suomi</button>
-    </div>   
+    <!--header-->  
     <div class="navbar">
-        <ul>
-            <li><a id="homeLink" href="index.html" class="active">Home</a></li>
-            <li><a id="learnLink" href="src/learn.html">Learn</a></li>
-            <li><a id="statusMapLink" href="src/status_map.html">Status map</a></li>
-            <li><a id="combinedReportLink" href="src/combined_report.html">Reporting</a></li>
-        </ul>
-        <div class="user-icon">
-            <img src="parts/user_app_basic_icon.png" alt="User Icon" />
+        <div class="menu">
+            <ul>
+                <li><a id="homeLink" href="./index.html" class="active">Home</a></li>
+                <li><a id="learnLink" href="./src/learn.html">How to Recycle</a></li>
+                <li><a id="statusMapLink" href="./src/status_map.html">Status map</a></li>
+                <li><a id="combinedReportLink" href="./src/combined_report.html">Reporting</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <div class="user-icon" href="./src/user_profile.html">
+                <img src="./parts/user_app_basic_icon.png" alt="User Icon" />
+            </div>
+            <div class="language-switcher">
+                <button onclick="setLanguage('en')">
+                    <img src="./parts/uk-flag-icon.png" alt="UK Flag" />
+                </button>
+                <button onclick="setLanguage('fi')">
+                    <img src="./parts/finland-flag-icon.png" alt="Finland Flag" />
+                </button>
+            </div>
+        </div>     
+    </div>
+
+    <!--main-->
+    <div class="container">
+        <div class="top-container">
+            <h3>Report, and track recycling issues in your neighborhood</h3>
+            <!--h4>Easily report and track recycling issues in your neighborhood</h4-->
+            <form action="./src/combined_report.html" class="form-box">
+                <label for="addressInput">Enter a nearby FI postcode, or street name and area:</label>
+                <p class="form-hint" id="addressHint">e.g. 'Augolantie 1, 13200 Hml'</p>
+                <div class="input-box">
+                    <input type="text" id="addressInput" class="textbox" placeholder="Street xx, 13100 Hml" size="10" maxlength="200">
+                    <button type="submit" class="submit">Go</button>
+                </div>
+                <div class="geolocate">
+                    <img src="./parts/my-location-icon.png" alt="Geolocate Icon" />
+                    <button type="button" onclick="getLocation()">Use my current location</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="mid-container">
+            <div id="stats">
+                <div>
+                    <big>1,234</big>
+                    reports submitted
+                </div>
+                <div>
+                    <big>567</big>
+                    fixed in last 30 days
+                </div>
+                <div>
+                    <big>890</big>
+                    issues pending
+                </div>
+            </div>
+        </div>
+
+        <div class="bot-container">
+            <div class="bot-left">
+                <h4>How to Recycle</h4>
+                <img src="./parts/recycle-icon.png" alt="Recycle Icon" />
+                <p>Learn how to properly recycle and help keep your region clean.</p>
+                <a href="./src/learn.html">> View Recycling Guide</a>
+            </div>
+            <div class="bot-right">
+                <h4>Status Map</h4>
+                <img src="./parts/map-icon.png" alt="Map Icon" />
+                <p>Track reported recycling issues and their status.</p>
+                <a href="./src/status_map.html">> View Map</a>
+            </div>
         </div>
     </div>
 
-    <div class="container" style="padding-top: 200px; padding-bottom: 200px;">
-        <span id="comingSoon" style="font-size: 30px; color: black; font-weight: bold;">Coming soon!</span>   
-    </div>
-
+    <!--footer-->
     <div class="footer">
         Footer
     </div>
