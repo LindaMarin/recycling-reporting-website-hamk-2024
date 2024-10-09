@@ -101,7 +101,7 @@ body {
 /* Homepage personalization */
 .container {
     text-align: left;
-    margin-top: -17px;
+    margin-top: -15px;
 }
 
 .user-icon {
@@ -111,7 +111,7 @@ body {
 .language-switcher {
     display: flex;
     position: relative;
-    top: -40px !important;
+    top: -35px !important;
     margin-left: 10px;
     right: -60px !important;
 }
