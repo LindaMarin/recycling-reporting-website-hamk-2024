@@ -1,0 +1,52 @@
+.status_map_container {
+    overflow-y: auto;
+    height: 350px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+
+.container h2 {
+    color: #155724;
+}
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin: 50px;
+    border: 2px solid #155724;
+    position: relative;
+}
+
+.status-list {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.status-item {
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.status-list button {
+    margin-right: 10px;
+    padding: 5px 5px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #519D4B;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.map-pin {
+    position: absolute;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+

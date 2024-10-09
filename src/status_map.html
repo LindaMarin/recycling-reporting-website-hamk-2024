@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>status map Page</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Status Map</title>
     <link rel="stylesheet" href="../parts/global.css">
-    <script src="../js/language.js"></script> <!-- Shared language script -->
+    <link rel="stylesheet" href="../parts/statusmapstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- Leaflet CSS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Leaflet JS -->
 </head>
 <body>
     <div class="language-switcher">
@@ -13,24 +17,136 @@
         <p>|</p>
         <button onclick="setLanguage('fi')">Suomi</button>
     </div>
+
     <div class="navbar">
         <ul>
-            <li><a id="homeLink" href="../index.html">Home</a></li>
-            <li><a id="learnLink" href="../src/learn.html">Learn</a></li>
-            <li><a id="statusMapLink" href="../src/status_map.html" class="active">Status map</a></li>
-            <li><a id="combinedReportLink" href="../src/combined_report.html" >Reporting</a></li>
+          <li><a id="homeLink" href="../index.html">Home</a></li>
+          <li><a id="learnLink" href="../src/learn.html">Learn</a></li>
+          <li><a id="statusMapLink" href="../src/status_map.html" class="active">Status map</a></li>
+          <li><a id="combinedReportLink" href="../src/combined_report.html">Reporting</a></li>
         </ul>
         <div class="user-icon">
-            <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
+          <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
         </div>
     </div>
+    
+    <!-- Status Map Section -->
+    <div class="container">
+        <div class="info">
+            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions()"></i>
+        </div>
 
-    <div class="container" style="padding-top: 200px; padding-bottom: 200px;" >
-        <span id="comingSoon" style="font-size: 30px; color: black; font-weight: bold;">Coming soon!</span>
-    </div>
+        <h2>Status Map</h2>
 
-    <div class="footer">
-        Footer
+        <div class="status_map_container">
+        <!-- Filter Options -->
+        <div class="status-list">
+            <button id="all_issues">All Issues</button>
+            <button id="open_issues">Open Issues</button>
+            <button id="resolved_issues">Resolved Issues</button>
+        </div>
+
+        <!-- Map Container -->
+        <div class="map-container" id="map"></div>
     </div>
+    </div>
+      <!-- Instructions Overlay for Step 1 -->
+      <div class="instructions-overlay" id="instructions-overlay-step1">
+        <div class="instructions-box">
+          <span class="close-button" onclick="toggleInstructions(1)">×</span>
+          <p>
+            <b id="step1InstructionsTitle"
+              >Instructions for submitting issues:</b
+            >
+          </p>
+          <ol>
+            <li id="step1Instruction1">
+              If you used a QR-code to access this reporting page, the address
+              should be correct.
+            </li>
+            <li id="step1Instruction2">
+              But if you came through the website, choose the correct address
+              from below.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="footer" id="footerText">Footer</div>
+
+    <script>
+       // Initialize the map centered on Kanta-Häme
+       var map = L.map('map').setView([60.9911, 24.4608], 11); // Zoomed in on Kanta-Häme
+
+        // Use CartoDB's Positron tile layer for a minimalist map style
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors © CARTO',
+            subdomains: 'abcd',
+            maxZoom: 18
+        }).addTo(map);
+
+        // Issue locations data (latitude, longitude, status)
+        var issues = [
+            { lat: 60.9921, lng: 24.4656, status: 'open' },   // Open issue 1
+            { lat: 60.9821, lng: 24.4756, status: 'resolved' }, // Resolved issue 1
+            { lat: 61.0000, lng: 24.4300, status: 'resolved' }, // Resolved issue 2
+            { lat: 60.9800, lng: 24.4400, status: 'open' },   // Open issue 2
+            { lat: 60.9930, lng: 24.4550, status: 'resolved' }, // Resolved issue 3
+            { lat: 60.9850, lng: 24.4600, status: 'resolved' }, // Resolved issue 4
+            { lat: 60.9950, lng: 24.4500, status: 'open' },    // Open issue 3
+            { lat: 61.0200, lng: 24.4900, status: 'resolved' }, // Resolved issue 5
+            { lat: 60.9700, lng: 24.4100, status: 'open' },     // Open issue 4
+            { lat: 61.0150, lng: 24.5200, status: 'open' },     // Open issue 5
+            { lat: 60.9600, lng: 24.4000, status: 'resolved' }, // Resolved issue 6
+            { lat: 61.0300, lng: 24.4700, status: 'resolved' }, // Resolved issue 7
+            { lat: 60.9450, lng: 24.3500, status: 'open' }      // Open issue 6
+        ];
+
+        // Variable to hold markers
+        var markers = [];
+
+        // Function to add markers to the map based on the filter
+        function addMarkers(filteredIssues) {
+            // Clear existing markers from the map
+            markers.forEach(function(marker) {
+                map.removeLayer(marker);
+            });
+            markers = [];
+
+            // Add new markers
+            filteredIssues.forEach(function(issue) {
+                var circleColor = issue.status === 'open' ? '#ff6a6a' : '#8fff6a'; // Orange for open, Green for resolved
+                var marker = L.circle([issue.lat, issue.lng], {
+                    color: circleColor,
+                    fillColor: circleColor,
+                    fillOpacity: 0.7,
+                    radius: 100 // Small circles to represent single recycling points
+                }).addTo(map).bindPopup('Status: ' + issue.status);
+                markers.push(marker);
+            });
+        }
+
+        // Display all issues by default
+        addMarkers(issues);
+
+        // Add click event listeners for the filter buttons
+        document.getElementById('all_issues').addEventListener('click', function() {
+            addMarkers(issues); // Show all issues
+        });
+
+        document.getElementById('open_issues').addEventListener('click', function() {
+            var openIssues = issues.filter(function(issue) {
+                return issue.status === 'open';
+            });
+            addMarkers(openIssues); // Show only open issues
+        });
+
+        document.getElementById('resolved_issues').addEventListener('click', function() {
+            var resolvedIssues = issues.filter(function(issue) {
+                return issue.status === 'resolved';
+            });
+            addMarkers(resolvedIssues); // Show only resolved issues
+        });
+    </script>
 </body>
 </html>
