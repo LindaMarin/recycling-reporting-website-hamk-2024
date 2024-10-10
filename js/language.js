@@ -220,6 +220,42 @@ function updateContent() {
     if (document.getElementById('cardboard')) {
         document.getElementById('cardboard').textContent = translations.cardboard;
     }
+    if (document.getElementById('plastic')) {
+        document.getElementById('plastic').textContent = translations.plastic;
+    }
+    if (document.getElementById('mixed')) {
+        document.getElementById('mixed').textContent = translations.mixed;
+    }
+    if (document.getElementById('BioTitle1')) {
+        document.getElementById('BioTitle1').textContent = translations.BioTitle1;
+    }
+    if (document.getElementById('BioText1')) {
+        document.getElementById('BioText1').textContent = translations.BioText1;
+    }
+    if (document.getElementById('BioTitle2')) {
+        document.getElementById('BioTitle2').textContent = translations.BioTitle2;
+    }
+    if (document.getElementById('BioList1')) {
+        document.getElementById('BioList1').textContent = translations.BioList1;
+    }
+    if (document.getElementById('BioList2')) {
+        document.getElementById('BioList2').textContent = translations.BioList2;
+    }
+    if (document.getElementById('BioList3')) {
+        document.getElementById('BioList3').textContent = translations.BioList3;
+    }
+    if (document.getElementById('BioList4')) {
+        document.getElementById('BioList4').textContent = translations.BioList4;
+    }
+    if (document.getElementById('cardboard')) {
+        document.getElementById('cardboard').textContent = translations.cardboard;
+    }
+    if (document.getElementById('cardboard')) {
+        document.getElementById('cardboard').textContent = translations.cardboard;
+    }
+    if (document.getElementById('cardboard')) {
+        document.getElementById('cardboard').textContent = translations.cardboard;
+    }
     
 
     reinitializeEventListeners();

@@ -74,6 +74,15 @@
     "metal": "Metal",
     "paper": "Paper",
     "cardboard": "Cardboard",
+    "plastic": "Plastic",
+    "mixed": "Mixed waste",
+    "BioTitle1": "Bio recycling",
+    "BioText1": "Bio waste or organic waste, is a necessary part of the recycling system. Recycling bio waste helps valuable nutrients to be returned to soil.",
+    "BioTitle2": "For example what can be recycled with bio waste",
+    "BioList1": "Food waste",
+    "BioList2": "Coffee waste",
+    "BioList3": "Plant materials",
+    "BioList4": "Cooking materials",
 
 
 

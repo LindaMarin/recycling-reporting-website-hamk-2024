@@ -75,6 +75,15 @@
     "metal": "Metallijäte",
     "paper": "Paperijäte",
     "cardboard": "Kartonkijäte",
+    "plastic": "Muovijäte",
+    "mixed": "Sekajäte",
+    "BioTitle1": "Biokierrätys",
+    "BioText1": "Biojäte tai orgaaninen jäte on olennainen osa kierrätysjärjestelmää. Kierrättämällä biojätettä auttaa arvokkaita ravinteita palauttamaan takaisin maaperään.",
+    "BioTitle2": "Esimerkiksi mitä voi kierättää bio jätteseen",
+    "BioList1": "Ruokahävikki",
+    "BioList2": "Kahvin jätettä",
+    "BioList3": "Kasvimateriaalit",
+    "BioList4": "Ruoanlaittomateriaaleja",
 
 
 
