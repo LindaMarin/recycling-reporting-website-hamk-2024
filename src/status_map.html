@@ -12,23 +12,35 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Leaflet JS -->
 </head>
 <body>
-    <div class="language-switcher">
-        <button onclick="setLanguage('en')">English</button>
-        <p>|</p>
-        <button onclick="setLanguage('fi')">Suomi</button>
+  <div class="navbar">
+    <div class="menu">
+      <ul>
+        <li><a id="homeLink" href="../index.html">Home</a></li>
+        <li><a id="learnLink" href="../src/learn.html">Learn</a></li>
+        <li>
+          <a id="statusMapLink" href="../src/status_map.html" class="active">Status Map</a>
+        </li>
+        <li>
+          <a
+            id="combinedReportLink"
+            href="../src/combined_report.html">Reporting</a>
+        </li>
+      </ul>
     </div>
-
-    <div class="navbar">
-        <ul>
-          <li><a id="homeLink" href="../index.html">Home</a></li>
-          <li><a id="learnLink" href="../src/learn.html">Learn</a></li>
-          <li><a id="statusMapLink" href="../src/status_map.html" class="active">Status map</a></li>
-          <li><a id="combinedReportLink" href="../src/combined_report.html">Reporting</a></li>
-        </ul>
-        <div class="user-icon">
-          <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
-        </div>
+    <div class="icons">
+      <div class="user-icon" href="../src/user_profile.html">
+        <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
+      </div>
+      <div class="language-switcher">
+        <button onclick="setLanguage('en')">
+          <img src="../parts/uk-flag-icon.png" alt="UK Flag" />
+        </button>
+        <button onclick="setLanguage('fi')">
+          <img src="../parts/finland-flag-icon.png" alt="Finland Flag" />
+        </button>
+      </div>
     </div>
+  </div>
     
     <!-- Status Map Section -->
     <div class="container">
