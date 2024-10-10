@@ -138,6 +138,7 @@ body {
 /* from here starts learn.html specific css */
 .recycling {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -160,28 +161,66 @@ body {
 .ChosenRecycling {
     color: black;
 }
+.ChosenRecycling h3 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #155724;
+    font-size: 24px;
+}
+.ChosenRecycling h4 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #155724;
+    font-size: 18px;
+    max-width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ChosenRecycling ul li {
+    margin-bottom: 10px;
+}
 .title {
     color: black;
     margin-bottom:  10px;
 }
-
 .container2 {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    /* flex-wrap: wrap; */
+    max-width: 80%;
+    margin: 0 auto;
 }
 .container2 a {
-    margin-left: 70px;
+    flex: 1 1 40%;
+    max-width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container2 a img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid black;
+
 }
 .container2 p {
-    width: 50%;
+    width: 100%;
 }
 .BlackLine {
     border: none;
     height: 1px;
     background-color: black;
     margin-top: 10px;
-    margin-left: 60px;
-    margin-right: 60px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .Overlay {
     display: none; 
@@ -195,6 +234,15 @@ body {
     justify-content: center; 
     align-items: center; 
     display: flex; 
+}
+.Overlay button {
+    font-size: 15px;
+    padding: 10px 15px;
+    border: 2px solid #519D4B;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .overlay-content {
@@ -212,12 +260,39 @@ body {
 }
 /*Here new stuff after upload */
 .container3 {
+    width: 60%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
-.AddressSelector {
-
+.container3 ul {
+    list-style-position: inside;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+.container3 button {
+    font-size: 15px;
+    padding: 10px 15px;
+    border: 2px solid #519D4B;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.AddressSelector select {
+    margin-top: 10px;
+    background-color: #ffffff;
+    color: rgba(34, 53, 31, 0.85);
+    border: 2px solid #519D4B;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 15px;
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 30%;
+    margin-bottom: 10px;
+    text-align: center;
 }
 .AddressSelector p {
     color: black;
+    margin-top: 20px;
 }

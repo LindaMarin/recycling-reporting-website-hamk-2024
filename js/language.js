@@ -198,6 +198,12 @@ function updateContent() {
         document.getElementById('returnHome').textContent = translations.returnHome;
     }
 
+    //Learn page specific translations
+    if (document.getElementById('LearnTitle')) {
+        document.getElementById('LearnTitle').textContent = translations.LearnTitle;
+    }
+    
+
     reinitializeEventListeners();
 }
 
