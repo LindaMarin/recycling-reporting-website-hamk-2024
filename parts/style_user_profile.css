@@ -2,8 +2,8 @@
 .user-info {
     margin-bottom: 30px;
     color: #004d00;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    /*background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;*/
     border-radius: 20px;
 }
 
@@ -22,7 +22,7 @@
 
 .reports-section {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    padding: 0 20px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

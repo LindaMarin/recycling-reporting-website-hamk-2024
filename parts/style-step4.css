@@ -113,6 +113,14 @@ body {
 }
 
 /* Step 4 personalization */
+.container {
+    margin-top: -15px !important;
+}
+
+.user-icon {
+    top: auto;
+}
+
 .input-box {
     display: flex;
     flex-direction: column;
@@ -231,25 +239,24 @@ body {
 .language-switcher {
     display: flex;
     position: relative;
+    top: -35px !important;
+    margin-left: 10px;
+    right: -60px !important;
 }
 
-.language-switcher p {
-    color: #F8FFF6;
-    font-size: 18px;
-    margin-top: 8px;
-    padding-left: 20px;
+.language-switcher img {
+    width: 25px !important;
+    height: 25px !important;
+    cursor: pointer;
 }
 
 .language-switcher button {
-    color: #F8FFF6;
-    font-weight: bold;
     background-color: transparent;
-    border: #519D4B;
+    border: none;
     cursor: pointer;
-    margin-left: 10px;
-    padding: 10px 0px 0px 10px;
+    margin-left: 5px;
 }
 
 .language-switcher button:hover {
-    color: #22351F;
+    zoom: 110%;
 }
