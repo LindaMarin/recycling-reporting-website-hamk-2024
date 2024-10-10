@@ -98,15 +98,6 @@ body {
     width: 100%;
 }
 
-/* Homepage personalization */
-.container {
-    text-align: left;
-}
-
-.user-icon {
-    top: auto;
-}
-
 .language-switcher {
     display: flex;
     position: relative;
@@ -126,6 +117,15 @@ body {
     border: none;
     cursor: pointer;
     margin-left: 5px;
+}
+
+/* Homepage personalization */
+.container {
+    text-align: left;
+}
+
+.user-icon {
+    top: auto;
 }
 
 .top-container {
