@@ -5,32 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../parts/style_global.css">
     <link rel="stylesheet" href="../parts/style_admin.css">
     <script src="../js/language.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="language-switcher">
-        <button onclick="setLanguage('en')">English</button>
-        <p>|</p>
-        <button onclick="setLanguage('fi')">Suomi</button>
-    </div>
-
     <div class="navbar">
-        <ul>
-            <li><a href="#" class="active">Dashboard</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Settings</a></li>
-        </ul>
-        <div class="user-icon">
-            <img src="../parts/user_app_basic_icon.png" alt="User Icon">
+        <div class="menu">
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <a class="user-icon" href="../src/user_profile.html">
+              <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
+            </a>
+            <div class="language-switcher">
+              <button onclick="setLanguage('en')">
+                <img src="../parts/uk-flag-icon.png" alt="UK Flag" />
+              </button>
+              <button onclick="setLanguage('fi')">
+                <img src="../parts/finland-flag-icon.png" alt="Finland Flag" />
+              </button>
+            </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="info">
-            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions()"></i>
-        </div>
         <h2>Admin Dashboard</h2>
 
         <div class="filter-options">
@@ -41,7 +45,7 @@
         </div>
 
         <div class="report-section" id="report-section">
-            <h3>Reported Issues</h3>
+            <!--h3>Reported Issues</h3-->
 
             <!-- Issue ID 201 -->
             <div class="report-item" id="report-201">
