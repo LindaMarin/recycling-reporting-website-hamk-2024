@@ -68,7 +68,17 @@
     "returnHome": "Return to home page",
 
     "LearnTitle": "Learn about recycling here",
-        
+    "RecycleInstruction": "Please select a category by pressing a button to learn more about recycling.",
+    "AddressInstruction": "Please if you want to select address for to learn more about from the bins you have available.",
+    "bio": "Bio",
+    "metal": "Metal",
+    "paper": "Paper",
+    "cardboard": "Cardboard",
+
+
+
+
+
     "footerText": "Footer"
 
 

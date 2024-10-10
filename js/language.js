@@ -202,6 +202,24 @@ function updateContent() {
     if (document.getElementById('LearnTitle')) {
         document.getElementById('LearnTitle').textContent = translations.LearnTitle;
     }
+    if (document.getElementById('RecycleInstruction')) {
+        document.getElementById('RecycleInstruction').textContent = translations.RecycleInstruction;
+    }
+    if (document.getElementById('AddressInstruction')) {
+        document.getElementById('AddressInstruction').textContent = translations.AddressInstruction;
+    }
+    if (document.getElementById('bio')) {
+        document.getElementById('bio').textContent = translations.bio;
+    }
+    if (document.getElementById('metal')) {
+        document.getElementById('metal').textContent = translations.metal;
+    }
+    if (document.getElementById('paper')) {
+        document.getElementById('paper').textContent = translations.paper;
+    }
+    if (document.getElementById('cardboard')) {
+        document.getElementById('cardboard').textContent = translations.cardboard;
+    }
     
 
     reinitializeEventListeners();

@@ -69,7 +69,17 @@
     "returnHome": "Palaa etusivulle",
 
     "LearnTitle": "Opi Kierrätyksestä täällä",
-    
-    
+    "RecycleInstruction": "Valitse kategoria painamalla painiketta saadaksesi lisätietoja kierrättämisestä",
+    "AddressInstruction": "Valitse haluamasi osoite sinulle saatavilla olevista kierrätys astioista.",
+    "bio": "Biojäte",
+    "metal": "Metallijäte",
+    "paper": "Paperijäte",
+    "cardboard": "Kartonkijäte",
+
+
+
+
+
+
     "footerText": "Ala-palkki"
 }
