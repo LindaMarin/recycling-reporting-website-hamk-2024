@@ -14,14 +14,8 @@
           <ul>
             <li><a id="homeLink" href="../index.html">Home</a></li>
             <li><a id="learnLink" href="../src/learn.html" class="active">Learn</a></li>
-            <li>
-              <a id="statusMapLink" href="../src/status_map.html">Status Map</a>
-            </li>
-            <li>
-              <a
-                id="combinedReportLink"
-                href="../src/combined_report.html">Reporting</a>
-            </li>
+            <li><a id="statusMapLink" href="../src/status_map.html">Status Map</a></li>
+            <li><a id="combinedReportLink" href="../src/combined_report.html">Reporting</a></li>
           </ul>
         </div>
         <div class="icons">
@@ -44,6 +38,15 @@
             <h1>Learn about recycling here</h1>
             <p><i>Please select a category by pressing a button learn more about it.</i></p>
 
+        </div>
+        <div class="AddressSelector">
+            <p><i>Please if you want to select address for to learn more about the bins you have.</i></p>
+            <select class="textbox" id="addressDropdown">
+                <option id="selectAddress" value="">Select an address</option>
+                <option value="address2">Street xx, 13100 Hml</option>
+                <option value="address3">Street xx, 13100 Hml</option>
+                <option value="address4">Street xx, 13100 Hml</option>
+            </select>
         </div>
         <div class="recycling">  
             <div>
@@ -76,7 +79,22 @@
             <h3 id="titleforselectedrecycling"></h3>
             <div class="container2">
                 <a id="picturefromselectedrecycling"></a>
-                <p id="selectedrecycling"><br><br><br><br><br><br><br><br><br><br><br></p>
+                <div class="container3">
+                    <p id="selectedrecycling"><br><br><br><br><br><br><br><br><br><br><br></p>
+                    <h4 id="WhatToRecycle"></h4>
+                    <ul id="List">   
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="Overlay" id="LearnMoreOverlay" style="display: none;">
+            <div class="overlay-content">
+                <h2 id="overlayTitle"></h2>
+                <p id="overlayDescription"></p>
+                <ul id="overlayMaterial">
+
+                </ul>
+                <button id="closeOverlay" onclick="closeOverlay()">Close</button>
             </div>
         </div>
     </div>
@@ -84,35 +102,72 @@
         Footer
     </div>
     <script>
+        function SelectedLearnMore(LearnMore) {
+            const overlayc = document.getElementById("LearnMoreOverlay")
+            const overlayTitle = document.getElementById("overlayTitle")
+            const overlayDescription = document.getElementById("overlayDescription")
+            const overlayMaterial = document.getElementById("overlayMaterial")
+            overlayc.style.display = 'block';
+
+            if(LearnMore == "BioMore"){
+                overlayTitle.innerHTML="Bio Recycling Resources"
+                overlayDescription.innerHTML="Here are more details about bio recycling."
+                overlayMaterial.innerHTML="<li>bio recycling tip</li><li>bio recycling link</li>"
+            }
+
+        }
+        function closeOverlay() {
+            document.getElementById("LearnMoreOverlay").style.display = 'none';
+        }
         function SelectedRecycling(buttonid) {
             var z = document.getElementById("titleforselectedrecycling")
             var x = document.getElementById("selectedrecycling")
             var v = document.getElementById("picturefromselectedrecycling")
+            var g = document.getElementById("List")
+            var l = document.getElementById("WhatToRecycle")
             if(buttonid=="bio"){
                 z.innerHTML="Bio recycling"
-                x.innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quis ducimus officiis quae deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                x.innerHTML="Bio waste or organic waste, is a necessary part of the recycling system. Recycling bio waste helps valuable nutrients to be returned to soil.<button id='BioMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
                 v.innerHTML='<img src="../parts/biorecycling.jpg" alt="test" style="height: 300px;">'
+                g.innerHTML='<li>Food waste</li> <li>Coffee waste</li> <li>Plant materials</li> <li>Cooking materials</li>'
+                l.innerHTML='For example what can be recycled with bio waste'
+                //g.innerHTML='<button id="BioMore" onclick="SelectedLearnMore(this.id)">Learn more</button>'
                 // style="width: 300px;"
             } if (buttonid=="metal") {
                 z.innerHTML="Metal recycling"
-                x.innerHTML="Lorem ipsum dolor amet consectetur adipisicing elit. Adipisci quis s officiis quae deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                x.innerHTML="Metal recycling is important because it can be almost infinitely recycled without losing quality. recycled metal can be used to make all sorts of things, like machinery or cars <button id='MetalMore' onclick='SelectedbLearnMore(this.id)'>Learn more</button>"
                 v.innerHTML='<img src="../parts/metalrecycling.jpg" alt="test" style="height: 300px;">'
+                g.innerHTML='<li>Metal cans and tins</li> <li>Aluminum foil</li> <li>Metal lids and caps</li> <li>Small metal objects</li>'
+                l.innerHTML='For example what can be recycled with metal waste'
+                //g.innerHTML="<button id='MetalMore' onclick='SelectedbLearnMore(this.id)'>Learn more</button>"
             } if (buttonid=="paper"){
                 z.innerHTML="Paper recycling"
-                x.innerHTML="Lorem ipsum dolor sit ducimus officiis amet consectetur adipisicing elit. Adipisci quis ducimus officiis quae deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                x.innerHTML="Recycled paper is used to produce new paper products for example newspapers. Paper products should be clean and dry for it be eligible for recycling. <button id='PaperMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
                 v.innerHTML='<img src="../parts/paperrecycling.jpg" alt="test" style="height: 300px;">'
+                g.innerHTML='<li>Newspapers and magazines</li> <li>Softcover books</li> <li>Advertisements</li> <li>Envelopes</li>'
+                l.innerHTML='For example what can be recycled with paper waste'
+                //g.innerHTML="<button id='PaperMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
             } if (buttonid=="cardboard") {
                 z.innerHTML="Cardboard recycling"
-                x.innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quis ducimus officiis quae deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                x.innerHTML="Cardboard is another important part of reducing waste. Cardboard packaging should be flattened and then placed in to correct bins. <button id='CardboardMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
                 v.innerHTML='<img src="../parts/cardboardrecycling.jpg" alt="test" style="height: 300px;">'
+                g.innerHTML='<li>Milk and juice cartons</li> <li>Egg cartons</li> <li>Paper bags and sacks</li> <li>Cardbaord packaging</li>'
+                l.innerHTML='For example what can be recycled with cardboard waste'
+                //g.innerHTML="<button id='CardboardMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
             } if (buttonid=="plastic") {
                 z.innerHTML="Plastic recycling"
-                x.innerHTML="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quis ducimus officiis nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat error minima nemo dolore minus."
+                x.innerHTML="Plastic recycling enables for plastic products and packages to be reused again. It is recommended to clean and flatten plastic products. <button id='PlasticMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
                 v.innerHTML='<img src="../parts/plasticrecycling.jpg" alt="test" style="height: 300px;">'
+                g.innerHTML='<li>Plastic bottles and canisters</li> <li>Plastic wraps and bags</li> <li>Some food packages</li> <li>Plastic caps and lids</li>'
+                l.innerHTML='For example what can be recycled with plastic waste'
+                //g.innerHTML="<button id='PlasticMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
             } if (buttonid=="mixed") {
                 z.innerHTML="Mixed recycling"
-                x.innerHTML="Lorem ipsum dolor sit amet consectetur. Deleniti nostrum alias, neque dolore dicta. Nulla, iure. Impedit fugit atque, fugiat nemo dolore minus."
-                v.innerHTML='<img src="../parts/mixedwaste" alt="test">'
+                x.innerHTML="Mixed waste is usually refering to trash that cannot be recycled to other types recycling bins like paper, metal or plastic. Mixed waste is usually incinerated to produce energy. <button id='MixedMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
+                v.innerHTML='<img src="../parts/mixedwaste.jpg" alt="test" style="height: 300px;">'
+                g.innerHTML='<li>Ceramic items</li> <li>Damaged textiles</li> <li>Hygiene products</li> <li>Dirty plastic and cardboard</li>'
+                l.innerHTML='For example what can be recycled with mixed waste'
+                //g.innerHTML="<button id='MixedMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
             }
         }
     </script>
