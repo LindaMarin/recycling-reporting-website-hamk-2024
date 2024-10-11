@@ -120,9 +120,9 @@
             } else if (LearnMore == "PaperMore") {
                 overlayTitle.innerHTML = "<h2 id='PaperTitle3'>Paper Recycling Resources</h2>";
                 overlayDescription.innerHTML = "<p id='PaperDescription'>Here are more details about paper recycling and few relevant links.</p>";
-                overlayMaterial.innerHTML = "<li id='PaperTip1'>Remove staples and paperclips before recycling</li><li id='PaperLink1'><a href='https://www.hsy.fi/en/waste-and-recycling/waste-guide/sorting/lajitteluohjeet-paperi'>HSY</a></li>";
+                overlayMaterial.innerHTML = "<li id='PaperTip1'>Remove staples and paperclips before recycling.</li><li id='PaperLink1'><a href='https://www.hsy.fi/en/waste-and-recycling/waste-guide/sorting/lajitteluohjeet-paperi'>HSY</a></li>";
             } else if (LearnMore == "CardboardMore") {
-                overlayTitle.innerHTML = "<h2 id='CardboardTitle3>'Cardboard Recycling Resources</h2>";
+                overlayTitle.innerHTML = "<h2 id='CardboardTitle3'>Cardboard Recycling Resources</h2>";
                 overlayDescription.innerHTML = "<p id='CardboardDescription'>Here are more details about cardboard recycling and few relevant links.</p>";
                 overlayMaterial.innerHTML = "<li id='CardboardTip1'>Cleaning is good, but not necessary to waste water rinsing it.</li><li id='CardboardLink1'><a href='https://www.hsy.fi/en/waste-and-recycling/waste-guide/sorting/carton-and-cardboard'>HSY</a></li>";
             } else if (LearnMore == "PlasticMore") {
@@ -158,7 +158,7 @@
                 x.innerHTML="<p id='MetalText1'>Metal recycling is important because it can be almost infinitely recycled without losing quality. recycled metal can be used to make all sorts of things, like machinery or cars.</p> <br><button id='MetalMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
                 v.innerHTML='<img src="../parts/metalrecycling.jpg" alt="test" style="height: 300px;">'
                 g.innerHTML='<li id="MetalList1">Metal cans and tins</li> <li id="MetalList2">Aluminum foil</li> <li id="MetalList3">Metal lids and caps</li> <li id="MetalList4">Small metal objects</li>'
-                l.innerHTML='<h4 id=MetalTitle2>For example what can be recycled with metal waste</h4>'
+                l.innerHTML='<h4 id="MetalTitle2">For example what can be recycled with metal waste</h4>'
                 //g.innerHTML="<button id='MetalMore' onclick='SelectedbLearnMore(this.id)'>Learn more</button>"
             } if (buttonid=="paper"){
                 z.innerHTML="<h3 id='PaperTitle1'>Paper recycling</h3>"
@@ -171,12 +171,12 @@
                 z.innerHTML="<h3 id='CardboardTitle1'>Cardboard recycling</h3>"
                 x.innerHTML="<p id='CardboardText1'>Cardboard is another important part of reducing waste. Cardboard packaging should be flattened and then placed in to correct bins.</p> <br> <button id='CardboardMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
                 v.innerHTML='<img src="../parts/cardboardrecycling.jpg" alt="test" style="height: 300px;">'
-                g.innerHTML='<li id="CardboardList1">Milk and juice cartons</li> <li id="CardboardList2">Egg cartons</li> <li id="CardboardList3">Paper bags and sacks</li> <li id="Cardboardlist4">Cardbaord packaging</li>'
+                g.innerHTML='<li id="CardboardList1">Milk and juice cartons</li> <li id="CardboardList2">Egg cartons</li> <li id="CardboardList3">Paper bags and sacks</li> <li id="Cardboardlist4">Cardboard packaging</li>'
                 l.innerHTML='<h4 id="CardboardTitle2">For example what can be recycled with cardboard waste</h4>'
                 //g.innerHTML="<button id='CardboardMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
             } if (buttonid=="plastic") {
                 z.innerHTML="<h3 id='PlasticTitle1'>Plastic recycling</h3>"
-                x.innerHTML="<p id='PlasticText1'>lastic recycling enables for plastic products and packages to be reused again. It is recommended to clean and flatten plastic products.</p> <br> <button id='PlasticMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
+                x.innerHTML="<p id='PlasticText1'>Plastic recycling enables for plastic products and packages to be reused again. It is recommended to clean and flatten plastic products.</p> <br> <button id='PlasticMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
                 v.innerHTML='<img src="../parts/plasticrecycling.jpg" alt="test" style="height: 300px;">'
                 g.innerHTML='<li id="PlasticList1">Plastic bottles and canisters</li> <li id="PlasticList2">Plastic wraps and bags</li> <li id="PlasticList3">Some food packages</li> <li id="plasticList4">Plastic caps and lids</li>'
                 l.innerHTML='<h4 id="PlasticTitle2">For example what can be recycled with plastic waste</h4>'
@@ -186,7 +186,7 @@
                 x.innerHTML="<p id='MixedText1'>Mixed waste is usually refering to trash that cannot be recycled to other types recycling bins like paper, metal or plastic. Mixed waste is usually incinerated to produce energy.</p> <br> <button id='MixedMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
                 v.innerHTML='<img src="../parts/mixedwaste.jpg" alt="test" style="height: 300px;">'
                 g.innerHTML='<li id="MixedList1">Ceramic items</li> <li id="MixedList2">Damaged textiles</li> <li id="MixedList3">Hygiene products</li> <li id="MixedList4">Dirty plastic and cardboard</li>'
-                l.innerHTML='<h4 id=Mixedtitle2>For example what can be recycled with mixed waste</h4>'
+                l.innerHTML='<h4 id="Mixedtitle2">For example what can be recycled with mixed waste</h4>'
                 //g.innerHTML="<button id='MixedMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
             }
         }

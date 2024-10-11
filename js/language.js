@@ -247,16 +247,204 @@ function updateContent() {
     if (document.getElementById('BioList4')) {
         document.getElementById('BioList4').textContent = translations.BioList4;
     }
-    if (document.getElementById('cardboard')) {
-        document.getElementById('cardboard').textContent = translations.cardboard;
+    if (document.getElementById('BioMore')) {
+        document.getElementById('BioMore').textContent = translations.BioMore;
     }
-    if (document.getElementById('cardboard')) {
-        document.getElementById('cardboard').textContent = translations.cardboard;
+    if (document.getElementById('MetalTitle1')) {
+        document.getElementById('MetalTitle1').textContent = translations.MetalTitle1;
     }
-    if (document.getElementById('cardboard')) {
-        document.getElementById('cardboard').textContent = translations.cardboard;
+    if (document.getElementById('MetalText1')) {
+        document.getElementById('MetalText1').textContent = translations.MetalText1;
     }
-    
+    if (document.getElementById('MetalTitle2')) {
+        document.getElementById('MetalTitle2').textContent = translations.MetalTitle2;
+    }
+    if (document.getElementById('MetalList1')) {
+        document.getElementById('MetalList1').textContent = translations.MetalList1;
+    }
+    if (document.getElementById('MetalList2')) {
+        document.getElementById('MetalList2').textContent = translations.MetalList2;
+    }
+    if (document.getElementById('MetalList3')) {
+        document.getElementById('MetalList3').textContent = translations.MetalList3;
+    }
+    if (document.getElementById('MetalList4')) {
+        document.getElementById('MetalList4').textContent = translations.MetalList4;
+    }
+    if (document.getElementById('MetalMore')) {
+        document.getElementById('MetalMore').textContent = translations.MetalMore;
+    }
+    if (document.getElementById('PaperTitle1')) {
+        document.getElementById('PaperTitle1').textContent = translations.PaperTitle1;
+    }
+    if (document.getElementById('PaperText1')) {
+        document.getElementById('PaperText1').textContent = translations.PaperText1;
+    }
+    if (document.getElementById('PaperTitle2')) {
+        document.getElementById('PaperTitle2').textContent = translations.PaperTitle2;
+    }
+    if (document.getElementById('PaperList1')) {
+        document.getElementById('PaperList1').textContent = translations.PaperList1;
+    }
+    if (document.getElementById('PaperList2')) {
+        document.getElementById('PaperList2').textContent = translations.PaperList2;
+    }
+    if (document.getElementById('PaperList3')) {
+        document.getElementById('PaperList3').textContent = translations.Paperlist3;
+    }
+    if (document.getElementById('PaperList4')) {
+        document.getElementById('PaperList4').textContent = translations.PaperList4;
+    }
+    if (document.getElementById('PaperMore')) {
+        document.getElementById('PaperMore').textContent = translations.PaperMore;
+    }
+    if (document.getElementById('CardboardTitle1')) {
+        document.getElementById('CardboardTitle1').textContent = translations.CardboardTitle1;
+    }
+    if (document.getElementById('CardboardText1')) {
+        document.getElementById('CardboardText1').textContent = translations.CardboardText1;
+    }
+    if (document.getElementById('CardboardTitle2')) {
+        document.getElementById('CardboardTitle2').textContent = translations.CardboardTitle2;
+    }
+    if (document.getElementById('CardboardList1')) {
+        document.getElementById('CardboardList1').textContent = translations.CardboardList1;
+    }
+    if (document.getElementById('CardboardList2')) {
+        document.getElementById('CardboardList2').textContent = translations.CardboardList2;
+    }
+    if (document.getElementById('CardboardList3')) {
+        document.getElementById('CardboardList3').textContent = translations.CardboardList3;
+    }
+    if (document.getElementById('CardboardList4')) {
+        document.getElementById('CardboardList4').textContent = translations.CardboardList4;
+    }
+    if (document.getElementById('CardboardMore')) {
+        document.getElementById('CardboardMore').textContent = translations.CardboardMore;
+    }
+    if (document.getElementById('PlasticTitle1')) {
+        document.getElementById('PlasticTitle1').textContent = translations.PlasticTitle1;
+    }
+    if (document.getElementById('PlasticText1')) {
+        document.getElementById('PlasticText1').textContent = translations.PlasticText1;
+    }
+    if (document.getElementById('PlasticTitle2')) {
+        document.getElementById('PlasticTitle2').textContent = translations.PlasticTitle2;
+    }
+    if (document.getElementById('PlasticList1')) {
+        document.getElementById('PlasticList1').textContent = translations.PlasticList1;
+    }
+    if (document.getElementById('PlasticList2')) {
+        document.getElementById('PlasticList2').textContent = translations.PlasticList2;
+    }
+    if (document.getElementById('PlasticList3')) {
+        document.getElementById('PlasticList3').textContent = translations.PlasticList3;
+    }
+    if (document.getElementById('PlasticList4')) {
+        document.getElementById('PlasticList4').textContent = translations.PlasticList4;
+    }
+    if (document.getElementById('PlasticMore')) {
+        document.getElementById('PlasticMore').textContent = translations.PlasticMore;
+    }
+    if (document.getElementById('MixedTitle1')) {
+        document.getElementById('MixedTitle1').textContent = translations.MixedTitle1;
+    }
+    if (document.getElementById('MixedText1')) {
+        document.getElementById('MixedText1').textContent = translations.MixedText1;
+    }
+    if (document.getElementById('MixedTitle2')) {
+        document.getElementById('MixedTitle2').textContent = translations.MixedTitle2;
+    }
+    if (document.getElementById('MixedList1')) {
+        document.getElementById('MixedList1').textContent = translations.MixedList1;
+    }
+    if (document.getElementById('MixedList2')) {
+        document.getElementById('MixedList2').textContent = translations.MixedList2;
+    }
+    if (document.getElementById('MixedList3')) {
+        document.getElementById('MixedList3').textContent = translations.MixedList3;
+    }
+    if (document.getElementById('MixedList4')) {
+        document.getElementById('MixedList4').textContent = translations.MixedList4;
+    }
+    if (document.getElementById('MixedMore')) {
+        document.getElementById('MixedMore').textContent = translations.MixedMore;
+    }
+    if (document.getElementById('BioTitle3')) {
+        document.getElementById('BioTitle3').textContent = translations.BioTitle3;
+    }
+    if (document.getElementById('BioDescription')) {
+        document.getElementById('BioDescription').textContent = translations.BioDescription;
+    }
+    if (document.getElementById('BioTip1')) {
+        document.getElementById('BioTip1').textContent = translations.BioTip1;
+    }
+    if (document.getElementById('BioLink1')) {
+        document.getElementById('BioLink1').textContent = translations.BioLink1;
+    }
+    if (document.getElementById('MetalTitle3')) {
+        document.getElementById('MetalTitle3').textContent = translations.MetalTitle3;
+    }
+    if (document.getElementById('MetalDescription')) {
+        document.getElementById('MetalDescription').textContent = translations.MetalDescription;
+    }
+    if (document.getElementById('MetalTip1')) {
+        document.getElementById('MetalTip1').textContent = translations.MetalTip1;
+    }
+    if (document.getElementById('MetalLink1')) {
+        document.getElementById('MetalLink1').textContent = translations.MetalLink1;
+    }
+    if (document.getElementById('PaperTitle3')) {
+        document.getElementById('PaperTitle3').textContent = translations.PaperTitle3;
+    }
+    if (document.getElementById('PaperDescription')) {
+        document.getElementById('PaperDescription').textContent = translations.PaperDescription;
+    }
+    if (document.getElementById('PaperTip1')) {
+        document.getElementById('PaperTip1').textContent = translations.PaperTip1;
+    }
+    if (document.getElementById('PaperLink1')) {
+        document.getElementById('PaperLink1').textContent = translations.PaperLink1;
+    }
+    if (document.getElementById('CardboardTitle3')) {
+        document.getElementById('CardboardTitle3').textContent = translations.CardboardTitle3;
+    }
+    if (document.getElementById('CardboardDescription')) {
+        document.getElementById('CardboardDescription').textContent = translations.CardboardDescription;
+    }
+    if (document.getElementById('CardboardTip1')) {
+        document.getElementById('CardboardTip1').textContent = translations.CardboardTip1;
+    }
+    if (document.getElementById('CardboardLink1')) {
+        document.getElementById('CardboardLink1').textContent = translations.CardboardLink1;
+    }
+    if (document.getElementById('PlasticTitle3')) {
+        document.getElementById('PlasticTitle3').textContent = translations.PlasticTitle3;
+    }
+    if (document.getElementById('PlasticDescription')) {
+        document.getElementById('PlasticDescription').textContent = translations.PlasticDescription;
+    }
+    if (document.getElementById('PlasticTip1')) {
+        document.getElementById('PlasticTip1').textContent = translations.PlasticTip1;
+    }
+    if (document.getElementById('PlasticLink1')) {
+        document.getElementById('PlasticLink1').textContent = translations.PlasticLink1;
+    }
+    if (document.getElementById('MixedTitle3')) {
+        document.getElementById('MixedTitle3').textContent = translations.MixedTitle3;
+    }
+    if (document.getElementById('MixedDescription')) {
+        document.getElementById('MixedDescription').textContent = translations.MixedDescription;
+    }
+    if (document.getElementById('MixedTip1')) {
+        document.getElementById('MixedTip1').textContent = translations.MixedTip1;
+    }
+    if (document.getElementById('MixedLink1')) {
+        document.getElementById('MixedLink1').textContent = translations.MixedLink1;
+    }    
+    if (document.getElementById('closeOverlay')) {
+        document.getElementById('closeOverlay').textContent = translations.closeOverlay;
+    }
 
     reinitializeEventListeners();
 }
