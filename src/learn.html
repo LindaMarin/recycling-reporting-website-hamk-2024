@@ -112,7 +112,7 @@
             if(LearnMore == "BioMore"){
                 overlayTitle.innerHTML="<h2 id='BioTitle3'>Bio Recycling Resources</h2>"
                 overlayDescription.innerHTML="<p id='BioDescription'>Here are more details about bio recycling and few relevant links.</p>"
-                overlayMaterial.innerHTML="<li id='BioTip1'>Huge amount of liquid or dairy products should be avoided to be recycled with bio waste.</li><li id='BioLink1'><a href='https://luontoliitto.fi'>luontoliitto</a></li>"
+                overlayMaterial.innerHTML="<li id='BioTip1'>Huge amount of liquid or dairy products should be avoided to be recycled with bio waste.</li><li id='BioLink1'><a href='https://luontoliitto.fi'>luontoliitto</a></li>";
             } else if (LearnMore == "MetalMore") {
                 overlayTitle.innerHTML = "<h2 id='MetalTitle3'>Metal Recycling Resources</h2>";
                 overlayDescription.innerHTML = "<p id='MetalDescription'>Here are more details about metal recycling and few relevant links.</p>";
@@ -134,6 +134,7 @@
                 overlayDescription.innerHTML = "<p id='MixedDescription'>Here are more details about mixed waste recycling.</p>";
                 overlayMaterial.innerHTML = "<li id='MixedTip1'>Do not put hazardous waste for example batteries or electronics.</li><li id='MixedLink1'><a href='https://www.hsy.fi/en/waste-and-recycling/waste-guide/sorting/mixed-waste'>HSY</a></li>";
             }
+            updateContent();
 
         }
         function closeOverlay() {
@@ -189,6 +190,7 @@
                 l.innerHTML='<h4 id="Mixedtitle2">For example what can be recycled with mixed waste</h4>'
                 //g.innerHTML="<button id='MixedMore' onclick='SelectedLearnMore(this.id)'>Learn more</button>"
             }
+            updateContent();
         }
     </script>
 </body>
