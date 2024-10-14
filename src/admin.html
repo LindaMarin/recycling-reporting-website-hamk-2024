@@ -5,40 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../parts/style_global.css">
-    <link rel="stylesheet" href="../parts/style_admin.css">
+    <link rel="stylesheet" href="../parts/admin.css">
     <script src="../js/language.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <div class="language-switcher">
+        <button onclick="setLanguage('en')">English</button>
+        <p>|</p>
+        <button onclick="setLanguage('fi')">Suomi</button>
+    </div>
+
     <div class="navbar">
-        <div class="menu">
-            <ul>
-                <li><a href="#" class="active">Dashboard</a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </div>
-        <div class="icons">
-            <a class="user-icon" href="../src/user_profile.html">
-              <img src="../parts/user_app_basic_icon.png" alt="User Icon" />
-            </a>
-            <div class="language-switcher">
-              <button onclick="setLanguage('en')">
-                <img src="../parts/uk-flag-icon.png" alt="UK Flag" />
-              </button>
-              <button onclick="setLanguage('fi')">
-                <img src="../parts/finland-flag-icon.png" alt="Finland Flag" />
-              </button>
-            </div>
+        <ul>
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+        <div class="user-icon">
+            <img src="../parts/user_app_basic_icon.png" alt="User Icon">
         </div>
     </div>
 
     <div class="container">
-        <i
-        class="fas fa-question-circle question-mark"
-        onclick="toggleInstructions()">
-        </i>
+        <div class="info">
+            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions()"></i>
+        </div>
         <h2>Admin Dashboard</h2>
 
         <div class="filter-options">
@@ -49,7 +41,7 @@
         </div>
 
         <div class="report-section" id="report-section">
-            <!--h3>Reported Issues</h3-->
+            <h3>Reported Issues</h3>
 
             <!-- Issue ID 201 -->
             <div class="report-item" id="report-201">
@@ -57,8 +49,10 @@
                 <p><strong>Address:</strong> 123 Main St, Springfield</p>
                 <p><strong>Issues and Categories:</strong></p>
                 <ol>
-                    <li>Waste Sorting Area - Equipment</li>
+                    <li>Waste Bins - Placement</li>
                     <li>Waste Bins - Filling Levels</li>
+                    <li>Waste Bins - Quantity</li>
+                    <li>Waste Bins - Signage</li>
                 </ol>
                 <p><strong>Submitted by:</strong> John Doe (Logged User)</p>
                 <p><strong>Status:</strong> <span class="status" id="status-201">Open</span></p>
@@ -74,7 +68,8 @@
                 <p><strong>Address:</strong> 456 Elm St, Springfield</p>
                 <p><strong>Issues and Categories:</strong></p>
                 <ol>
-                    <li>General Cleanliness - Cleanliness</li>
+                    <li>Waste Bins - Quantity</li>
+                    <li>Waste Bins - Filling Levels</li>
                 </ol>
                 <p><strong>Submitted by:</strong> Anonymous</p>
                 <p><strong>Status:</strong> <span class="status" id="status-202">Open</span></p>
@@ -91,7 +86,7 @@
                 <p><strong>Issues and Categories:</strong></p>
                 <ol>
                     <li>Waste Bins - Signage</li>
-                    <li>Waste Sorting Area - Ventilation</li>
+                    <li>Waste Bins - Filling Levels</li>
                 </ol>
                 <p><strong>Submitted by:</strong> Jane Smith (Logged User)</p>
                 <p><strong>Status:</strong> <span class="status" id="status-203">Resolved</span></p>
@@ -107,7 +102,8 @@
                 <p><strong>Address:</strong> 321 Maple St, Springfield</p>
                 <p><strong>Issues and Categories:</strong></p>
                 <ol>
-                    <li>General Cleanliness - Unwanted Animals</li>
+                    <li>Waste Bins - Quantity</li>
+                    <li>Waste Bins - Filling Levels</li>
                 </ol>
                 <p><strong>Submitted by:</strong> Alice Johnson (Logged User)</p>
                 <p><strong>Status:</strong> <span class="status" id="status-204">Open</span></p>
@@ -139,7 +135,7 @@
                 <p><strong>Address:</strong> 987 Birch St, Springfield</p>
                 <p><strong>Issues and Categories:</strong></p>
                 <ol>
-                    <li>Waste Sorting Area - Overcrowding</li>
+                    <li>Waste Bins - Quantity</li>
                 </ol>
                 <p><strong>Submitted by:</strong> Anonymous</p>
                 <p><strong>Status:</strong> <span class="status" id="status-206">In Progress</span></p>
@@ -173,9 +169,16 @@
     <div class="details-overlay" id="details-overlay" style="display:none;">
         <div class="details-box">
             <span class="close-button" onclick="toggleDetails()">×</span>
-            <div id="issue-details"></div>
+            <div class="issue-details" id="issue-details"></div>
         </div>
     </div>
+
+    <!-- Image overlay -->
+    <div class="image-overlay" id="image-overlay" style="display:none;">
+        <span class="close-button" onclick="toggleImage()">×</span>
+        <img id="enlarged-image" style="max-width: 90%; height: auto; margin: auto; display: block;">
+    </div>
+
 
     <script>
         function toggleInstructions() {
@@ -188,6 +191,18 @@
             overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
         }
 
+        function toggleImage() {
+            const overlay = document.getElementById('image-overlay');
+            overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showImage(src) {
+            const enlargedImage = document.getElementById('enlarged-image');
+            enlargedImage.src = src;
+            toggleImage();
+        }
+
+
         function viewDetails(issueId) {
             let details = '';
             switch (issueId) {
@@ -196,12 +211,46 @@
                         <h3>Issue ID: 201</h3>
                         <p><strong>Address:</strong> 123 Main St, Springfield</p>
                         <p><strong>Issues and Categories:</strong></p>
-                        <ol>
-                            <li>Waste Sorting Area - Equipment</li>
-                            <li>Waste Bins - Filling Levels</li>
+                        <ol style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 20px;">
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                   <img src="../parts/wastebinsplacements.jpeg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Placement</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The sorting Placement is not functioning as expected.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                    <img src="../parts/wastebins.jpg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Filling Levels</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The bins are nearly full and require attention.</p>
+                                    </div>
+                                </div>
+                            </li>                       
+                            <li>
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                    <img src="../parts/wastebinsquantity.jpeg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Quantity</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The bins are nearly full and require attention.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                    <img src="../parts/wastebinssinage.jpeg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Signage</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The bins are nearly full and require attention.</p>
+                                    </div>
+                                </div>
+                            </li>
                         </ol>
                         <p><strong>Submitted by:</strong> John Doe (Logged User)</p>
-                        <p><strong>Status:</strong> Open</p>
+                        <p><strong>Submission Date:</strong> 20/11/2024</p>
                     `;
                     break;
                 case '202':
@@ -209,11 +258,28 @@
                         <h3>Issue ID: 202</h3>
                         <p><strong>Address:</strong> 456 Elm St, Springfield</p>
                         <p><strong>Issues and Categories:</strong></p>
-                        <ol>
-                            <li>General Cleanliness - Cleanliness</li>
+                        <ol style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 20px;">
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                   <img src="../parts/wastebinsquantity.jpeg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Quantity</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The sorting Placement is not functioning as expected.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                    <img src="../parts/wastebins.jpg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Filling Levels</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The bins are nearly full and require attention.</p>
+                                    </div>
+                                </div>
+                            </li>
                         </ol>
-                        <p><strong>Submitted by:</strong> Anonymous</p>
-                        <p><strong>Status:</strong> Open</p>
+                        <p><strong>Submitted by:</strong> John Doe (Logged User)</p>
+                        <p><strong>Submission Date:</strong> 20/11/2024</p>
                     `;
                     break;
                 case '203':
@@ -221,12 +287,28 @@
                         <h3>Issue ID: 203</h3>
                         <p><strong>Address:</strong> 789 Oak St, Springfield</p>
                         <p><strong>Issues and Categories:</strong></p>
-                        <ol>
-                            <li>Waste Bins - Signage</li>
-                            <li>Waste Sorting Area - Ventilation</li>
+                        <ol style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 20px;">
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                   <img src="../parts/wastebinsplacements.jpeg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Placement</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The sorting Placement is not functioning as expected.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                    <img src="../parts/wastebins.jpg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Filling Levels</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The bins are nearly full and require attention.</p>
+                                    </div>
+                                </div>
+                            </li>
                         </ol>
-                        <p><strong>Submitted by:</strong> Jane Smith (Logged User)</p>
-                        <p><strong>Status:</strong> Resolved</p>
+                        <p><strong>Submitted by:</strong> John Doe (Logged User)</p>
+                        <p><strong>Submission Date:</strong> 20/11/2024</p>
                     `;
                     break;
                 case '204':
@@ -234,11 +316,28 @@
                         <h3>Issue ID: 204</h3>
                         <p><strong>Address:</strong> 321 Maple St, Springfield</p>
                         <p><strong>Issues and Categories:</strong></p>
-                        <ol>
-                            <li>General Cleanliness - Unwanted Animals</li>
+                        <ol style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 20px;">
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                   <img src="../parts/wastebinsplacements.jpeg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Placement</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The sorting Placement is not functioning as expected.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                    <img src="../parts/wastebins.jpg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Filling Levels</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The bins are nearly full and require attention.</p>
+                                    </div>
+                                </div>
+                            </li>
                         </ol>
-                        <p><strong>Submitted by:</strong> Alice Johnson (Logged User)</p>
-                        <p><strong>Status:</strong> Open</p>
+                        <p><strong>Submitted by:</strong> John Doe (Logged User)</p>
+                        <p><strong>Submission Date:</strong> 20/11/2024</p>
                     `;
                     break;
                 case '205':
@@ -246,11 +345,19 @@
                         <h3>Issue ID: 205</h3>
                         <p><strong>Address:</strong> 654 Pine St, Springfield</p>
                         <p><strong>Issues and Categories:</strong></p>
-                        <ol>
-                            <li>Waste Bins - Filling Levels</li>
+                        <ol style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 20px;">
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                   <img src="../parts/wastebinsplacements.jpeg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Placement</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The sorting Placement is not functioning as expected.</p>
+                                    </div>
+                                </div>
+                            </li>
                         </ol>
-                        <p><strong>Submitted by:</strong> Mark Davis (Anonymous)</p>
-                        <p><strong>Status:</strong> Open</p>
+                        <p><strong>Submitted by:</strong> John Doe (Logged User)</p>
+                        <p><strong>Submission Date:</strong> 20/11/2024</p>
                     `;
                     break;
                 case '206':
@@ -258,11 +365,19 @@
                         <h3>Issue ID: 206</h3>
                         <p><strong>Address:</strong> 987 Birch St, Springfield</p>
                         <p><strong>Issues and Categories:</strong></p>
-                        <ol>
-                            <li>Waste Sorting Area - Overcrowding</li>
+                        <ol style="list-style-type: none; padding: 0;">
+                            <li style="margin-bottom: 20px;">
+                                <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; display: flex; align-items: center;">
+                                   <img src="../parts/wastebinsplacements.jpeg" class="clickable-image" style="max-width: 100px; height: auto; border-radius: 4px; margin-right: 15px;" onclick="showImage('../parts/wastebins.jpg')">
+                                    <div>
+                                        <h4 style="margin: 0;">Waste Bins - Placement</h4>
+                                        <p style="margin: 5px 0; color: #555;"><strong>Comment:</strong> The sorting Placement is not functioning as expected.</p>
+                                    </div>
+                                </div>
+                            </li>
                         </ol>
-                        <p><strong>Submitted by:</strong> Anonymous</p>
-                        <p><strong>Status:</strong> In Progress</p>
+                        <p><strong>Submitted by:</strong> John Doe (Logged User)</p>
+                        <p><strong>Submission Date:</strong> 20/11/2024</p>
                     `;
                     break;
                
