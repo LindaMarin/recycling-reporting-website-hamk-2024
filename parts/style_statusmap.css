@@ -1,6 +1,6 @@
 .status_map_container {
-    overflow-y: auto;
-    height: 350px;
+
+    height: 500px;
     margin-top: 20px;
     text-align: left;
 }
@@ -8,38 +8,26 @@
 
 .container h2 {
     color: #155724;
+    margin-bottom: 20px;
 }
 .map-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
-    margin: 50px;
+    height: 400px;
+    margin: 50px 50px;
     border: 2px solid #155724;
     position: relative;
 }
 
-.status-list {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
+.image-row {
+    align-items: baseline;
 }
 
 .status-item {
     padding: 10px;
     font-weight: bold;
     color: #fff;
-}
-
-.status-list button {
-    margin-right: 10px;
-    padding: 5px 5px;
-    font-size: 16px;
-    color: #ffffff;
-    background-color: #519D4B;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 .map-pin {
@@ -50,3 +38,113 @@
     color: white;
 }
 
+
+/* Status Button Styles */
+.status-list button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white; /* White background */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* All Issues Button */
+#all_issues {
+    color: #000; /* Black text */
+    border: 2px solid #000; /* Black border */
+}
+
+#all_issues:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+}
+
+/* Open Issues Button */
+#open_issues {
+    color: #FE5D26; /* Orange text */
+    border: 2px solid #FE5D26; /* Orange border */
+}
+
+#open_issues:hover {
+    background-color: #FE5D26;
+    color: white;
+}
+
+/* In Progress Issues Button */
+#in_progress_issues {
+    color: #F2C078; /* Yellow text */
+    border: 2px solid #F2C078; /* Yellow border */
+}
+
+#in_progress_issues:hover {
+    background-color: #F2C078;
+    color: white;
+}
+
+/* Resolved Issues Button */
+#resolved_issues {
+    color: #519D4B; /* Green text */
+    border: 2px solid #519D4B; /* Green border */
+}
+
+#resolved_issues:hover {
+    background-color: #519D4B;
+    color: white;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    align-items: center;
+    margin: 70px auto 20px;
+}
+
+#search-input {
+    padding: 10px;
+    width: 15%;
+    border: 2px solid #155724; /* Default black border */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    color: #155724; /* Default black text */
+    border: 2px solid #155724; /* Default black border */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #519D4B;
+    color: white;
+}
+
+/* Adding some spacing and layout adjustments */
+.status-list {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+button {
+    outline: none;
+}
+
+.instructions-box ul {
+    margin-left: 20px; /* Indent the entire list */
+    padding-left: 0; /* Remove default padding */
+}
+
+.instructions-box li {
+    margin-bottom: 5px; /* Space between list items */
+    line-height: 1.5; /* Improve readability */
+}
+
+.instructions-box {
+    width: 500px;
+}

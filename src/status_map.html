@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- Leaflet CSS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Leaflet JS -->
+    <script src="../js/language.js"></script>
 </head>
 <body>
   <div class="navbar">
@@ -21,9 +22,7 @@
           <a id="statusMapLink" href="../src/status_map.html" class="active">Status Map</a>
         </li>
         <li>
-          <a
-            id="combinedReportLink"
-            href="../src/combined_report.html">Reporting</a>
+          <a id="combinedReportLink" href="../src/combined_report.html">Reporting</a>
         </li>
       </ul>
     </div>
@@ -41,124 +40,201 @@
       </div>
     </div>
   </div>
-    
-    <!-- Status Map Section -->
-    <div class="container">
-        <div class="info">
-            <i class="fas fa-question-circle question-mark" onclick="toggleInstructions()"></i>
+
+  <!-- Status Map Section -->
+  <div class="container">
+      <div class="info">
+          <i class="fas fa-question-circle question-mark" onclick="toggleInstructions()"></i>
+      </div>
+      <h2>Explore Issues</h2>
+
+      <div class="image-row">
+        <div style="text-align:center; display:inline-block; width:25%;">
+            <p style="font-weight:bolder; color: #155724;">General Cleanliness</p>
+            <img src="../parts/generalcleanliness_pie.png" alt="General Cleanliness" style="width:100%;">
         </div>
-
-        <h2>Status Map</h2>
-
-        <div class="status_map_container">
-        <!-- Filter Options -->
-        <div class="status-list">
-            <button id="all_issues">All Issues</button>
-            <button id="open_issues">Open Issues</button>
-            <button id="resolved_issues">Resolved Issues</button>
+        <div style="text-align:center; display:inline-block; width:25%;">
+            <p style="font-weight: bolder; color: #155724;">Waste Sorting Area</p>
+            <img src="../parts/wastesortingarea_pie.png" alt="Waste Sorting Area" style="width:100%;">
         </div>
-
-        <!-- Map Container -->
-        <div class="map-container" id="map"></div>
+        <div style="text-align:center; display:inline-block; width:25%;">
+            <p style="font-weight: bolder; color: #155724;">Waste Bins</p>
+            <img src="../parts/wastebins_pie.png" alt="Waste Bins" style="width:100%;">
+        </div>
     </div>
-    </div>
-      <!-- Instructions Overlay for Step 1 -->
-      <div class="instructions-overlay" id="instructions-overlay-step1">
-        <div class="instructions-box">
-          <span class="close-button" onclick="toggleInstructions(1)">×</span>
-          <p>
-            <b id="step1InstructionsTitle"
-              >Instructions for submitting issues:</b
-            >
-          </p>
-          <ol>
-            <li id="step1Instruction1">
-              If you used a QR-code to access this reporting page, the address
-              should be correct.
-            </li>
-            <li id="step1Instruction2">
-              But if you came through the website, choose the correct address
-              from below.
-            </li>
-          </ol>
-        </div>
+
+    <span style="color:#FE5D26; font-weight: bold; margin: 10px">Open</span>
+    <span style="color:#000000;"> | </span>
+    <span style="color:#F2C078; font-weight: bold; margin: 10px">In Progress </span>
+    <span style="color:#000000;"> | </span>
+    <span style="color:#519D4B; font-weight: bold; margin: 10px">Resolved</span>
+
+      <!-- Search Bar for Issue ID -->
+      <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Search by ID..." />
+          <button id="search-button">Search</button>
       </div>
 
-      <div class="footer" id="footerText">Footer</div>
 
-    <script>
-       // Initialize the map centered on Kanta-Häme
-       var map = L.map('map').setView([60.9911, 24.4608], 11); // Zoomed in on Kanta-Häme
+      <!-- Status Map Container -->
+      <div class="status_map_container">
+          <!-- Filter Options -->
+          <div class="status-list">
+              <button id="all_issues">All Issues</button>
+              <button id="open_issues">Open Issues</button>
+              <button id="in_progress_issues">In-Progress Issues</button>
+              <button id="resolved_issues">Resolved Issues</button>
+          </div>
 
-        // Use CartoDB's Positron tile layer for a minimalist map style
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '© OpenStreetMap contributors © CARTO',
-            subdomains: 'abcd',
-            maxZoom: 18
-        }).addTo(map);
+          <!-- Map Container -->
+          <div class="map-container" id="map"></div>
+      </div>
+  </div>
 
-        // Issue locations data (latitude, longitude, status)
-        var issues = [
-            { lat: 60.9921, lng: 24.4656, status: 'open' },   // Open issue 1
-            { lat: 60.9821, lng: 24.4756, status: 'resolved' }, // Resolved issue 1
-            { lat: 61.0000, lng: 24.4300, status: 'resolved' }, // Resolved issue 2
-            { lat: 60.9800, lng: 24.4400, status: 'open' },   // Open issue 2
-            { lat: 60.9930, lng: 24.4550, status: 'resolved' }, // Resolved issue 3
-            { lat: 60.9850, lng: 24.4600, status: 'resolved' }, // Resolved issue 4
-            { lat: 60.9950, lng: 24.4500, status: 'open' },    // Open issue 3
-            { lat: 61.0200, lng: 24.4900, status: 'resolved' }, // Resolved issue 5
-            { lat: 60.9700, lng: 24.4100, status: 'open' },     // Open issue 4
-            { lat: 61.0150, lng: 24.5200, status: 'open' },     // Open issue 5
-            { lat: 60.9600, lng: 24.4000, status: 'resolved' }, // Resolved issue 6
-            { lat: 61.0300, lng: 24.4700, status: 'resolved' }, // Resolved issue 7
-            { lat: 60.9450, lng: 24.3500, status: 'open' }      // Open issue 6
-        ];
+  <!-- Footer -->
+  <div class="footer" id="footerText">Footer</div>
 
-        // Variable to hold markers
-        var markers = [];
+  <div class="instructions-overlay" id="instructions-overlay" style="display:none;">
+    <div class="instructions-box">
+        <span class="close-button" onclick="toggleInstructions()">×</span>
+        <p><b>Instructions for Navigating the Status Map:</b></p>
+        <ol>
+            <li>Use the <b>filter buttons</b> at the top to display different sets of issues:
+                <ul>
+                    <li><b>All Issues:</b> View all reported issues on the map.</li>
+                    <li><b>Open Issues:</b> Filter to see only currently unresolved issues.</li>
+                    <li><b>In-Progress Issues:</b> Display issues that are being actively addressed.</li>
+                    <li><b>Resolved Issues:</b> Check issues that have been marked as resolved.</li>
+                </ul>
+            </li>
+            <li>To find a specific issue, use the <b>search bar</b> by entering the issue ID. The map will automatically zoom to the issue location.</li>
+            <li>Click on any issue marker on the map to view more <b>details</b> about the issue.</li>
+            <li>If necessary, you can mark an issue as <b>resolved</b> or <b>reopen</b> it from the details popup.</li>
+            <li>Zoom in and out on the map to explore different areas and view reported issues.</li>
+        </ol>
+    </div>
+</div>
 
-        // Function to add markers to the map based on the filter
-        function addMarkers(filteredIssues) {
-            // Clear existing markers from the map
-            markers.forEach(function(marker) {
-                map.removeLayer(marker);
-            });
-            markers = [];
+  <script>
 
-            // Add new markers
-            filteredIssues.forEach(function(issue) {
-                var circleColor = issue.status === 'open' ? '#ff6a6a' : '#8fff6a'; // Orange for open, Green for resolved
-                var marker = L.circle([issue.lat, issue.lng], {
-                    color: circleColor,
-                    fillColor: circleColor,
-                    fillOpacity: 0.7,
-                    radius: 100 // Small circles to represent single recycling points
-                }).addTo(map).bindPopup('Status: ' + issue.status);
-                markers.push(marker);
-            });
+function toggleInstructions() {
+            const overlay = document.getElementById('instructions-overlay');
+            overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
         }
+      // Initialize the map centered on Kanta-Häme
+      var map = L.map('map').setView([60.9911, 24.4608], 10); // Zoomed in on Kanta-Häme
 
-        // Display all issues by default
-        addMarkers(issues);
+      // Use CartoDB's Positron tile layer for a minimalist map style
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+          attribution: '© OpenStreetMap contributors © CARTO',
+          subdomains: 'abcd',
+          maxZoom: 16
+      }).addTo(map);
 
-        // Add click event listeners for the filter buttons
-        document.getElementById('all_issues').addEventListener('click', function() {
-            addMarkers(issues); // Show all issues
-        });
+      var issues = [
+    { id: 1, lat: 60.9921, lng: 24.4656, status: 'open' },   
+    { id: 2, lat: 60.9821, lng: 24.4756, status: 'resolved' },
+    { id: 3, lat: 61.0000, lng: 24.4300, status: 'resolved' },
+    { id: 4, lat: 60.9800, lng: 24.4400, status: 'open' },   
+    { id: 5, lat: 60.9930, lng: 24.4550, status: 'in_progress' },
+    { id: 6, lat: 60.9850, lng: 24.4600, status: 'resolved' },
+    { id: 7, lat: 60.9950, lng: 24.4500, status: 'open' },   
+    { id: 8, lat: 61.0200, lng: 24.4900, status: 'in_progress' },
+    { id: 9, lat: 60.9700, lng: 24.4100, status: 'resolved' },   
+    { id: 10, lat: 61.0150, lng: 24.5200, status: 'resolved' },  
+    { id: 11, lat: 60.9600, lng: 24.4000, status: 'resolved' },
+    { id: 12, lat: 61.0300, lng: 24.4700, status: 'resolved' },
+    { id: 13, lat: 60.9450, lng: 24.5000, status: 'open' },   
+    { id: 14, lat: 61.0400, lng: 24.6000, status: 'in_progress' },
+    { id: 15, lat: 60.9500, lng: 24.4800, status: 'resolved' },   
+    { id: 16, lat: 60.9700, lng: 24.4950, status: 'open' },     
+    { id: 17, lat: 60.9300, lng: 24.4600, status: 'resolved' }, 
+    { id: 18, lat: 61.0100, lng: 24.4400, status: 'resolved' },     
+    { id: 19, lat: 61.0250, lng: 24.5050, status: 'in_progress' },
+    { id: 20, lat: 61.0350, lng: 24.5200, status: 'open' },   
+    { id: 21, lat: 60.9450, lng: 24.5400, status: 'resolved' },  
+    { id: 22, lat: 60.9550, lng: 24.4100, status: 'in_progress' }, 
+    { id: 23, lat: 61.0400, lng: 24.4700, status: 'resolved' },  
+    { id: 24, lat: 60.9650, lng: 24.4450, status: 'resolved' }, 
+    { id: 25, lat: 60.9750, lng: 24.4600, status: 'in_progress' }, 
+];
 
-        document.getElementById('open_issues').addEventListener('click', function() {
-            var openIssues = issues.filter(function(issue) {
-                return issue.status === 'open';
-            });
-            addMarkers(openIssues); // Show only open issues
-        });
 
-        document.getElementById('resolved_issues').addEventListener('click', function() {
-            var resolvedIssues = issues.filter(function(issue) {
-                return issue.status === 'resolved';
-            });
-            addMarkers(resolvedIssues); // Show only resolved issues
-        });
-    </script>
+      // Variable to hold markers
+      var markers = [];
+
+      // Function to add markers to the map based on the filter
+      function addMarkers(filteredIssues) {
+          // Clear existing markers from the map
+          markers.forEach(function(marker) {
+              map.removeLayer(marker);
+          });
+          markers = [];
+
+          // Add new markers
+          filteredIssues.forEach(function(issue) {
+              var circleColor;
+              if (issue.status === 'open') {
+                  circleColor = '#FE5D26';  // Orange for open issues
+              } else if (issue.status === 'in_progress') {
+                  circleColor = '#F2C078';  // Yellow for in-progress issues
+              } else {
+                  circleColor = '#519D4B';  // Green for resolved issues
+              }
+
+              var marker = L.circle([issue.lat, issue.lng], {
+                  color: circleColor,
+                  fillColor: circleColor,
+                  fillOpacity: 0.7,
+                  radius: 100
+              }).addTo(map).bindPopup('Issue ID: ' + issue.id + '<br>Status: ' + issue.status);
+              markers.push(marker);
+          });
+      }
+
+      // Display all issues by default
+      addMarkers(issues);
+
+      // Add click event listeners for the filter buttons
+      document.getElementById('all_issues').addEventListener('click', function() {
+          addMarkers(issues); // Show all issues
+      });
+
+      document.getElementById('open_issues').addEventListener('click', function() {
+          var openIssues = issues.filter(function(issue) {
+              return issue.status === 'open';
+          });
+          addMarkers(openIssues); // Show only open issues
+      });
+
+      document.getElementById('in_progress_issues').addEventListener('click', function() {
+          var inProgressIssues = issues.filter(function(issue) {
+              return issue.status === 'in_progress';
+          });
+          addMarkers(inProgressIssues); // Show only in-progress issues
+      });
+
+      document.getElementById('resolved_issues').addEventListener('click', function() {
+          var resolvedIssues = issues.filter(function(issue) {
+              return issue.status === 'resolved';
+          });
+          addMarkers(resolvedIssues); // Show only resolved issues
+      });
+
+      // Search functionality for Issue ID
+      document.getElementById('search-button').addEventListener('click', function() {
+          var searchInput = document.getElementById('search-input').value;
+          var issue = issues.find(function(issue) {
+              return issue.id == searchInput;
+          });
+
+          if (issue) {
+              map.setView([issue.lat, issue.lng], 13); // Zoom in on the issue
+              addMarkers([issue]); // Show only the found issue
+          } else {
+              alert('Issue with ID ' + searchInput + ' not found.');
+          }
+      });
+  </script>
 </body>
 </html>
