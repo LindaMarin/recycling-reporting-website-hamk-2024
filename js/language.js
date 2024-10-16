@@ -16,7 +16,6 @@ function setLanguage(lang) {
 
             // Update the content immediately
             updateContent();
-            reinitializeEventListeners(); // Reattach event listeners after translation
         })
         .catch(error => console.error('Error loading language file:', error));
 }
@@ -190,9 +189,12 @@ function updateContent() {
         document.getElementById('step4FinishText').textContent = translations.step4FinishText;
     }
 
-    // Step 5 translations
+    // Step 5 translations  
     if (document.getElementById('step5ThankYou')) {
         document.getElementById('step5ThankYou').textContent = translations.step5ThankYou;
+    }
+    if (document.getElementById('step5span')) {
+        document.getElementById('step5span').textContent = translations.step5span;
     }
     if (document.getElementById('returnHome')) {
         document.getElementById('returnHome').textContent = translations.returnHome;
@@ -446,27 +448,50 @@ function updateContent() {
         document.getElementById('closeOverlay').textContent = translations.closeOverlay;
     }
 
-    reinitializeEventListeners();
-}
+    // Status map page translations  
+    if (document.getElementById('exploreIssues')) {
+        document.getElementById('exploreIssues').textContent = translations.exploreIssues;
+    }
+    if (document.getElementById('searchButton')) {
+        document.getElementById('searchButton').textContent = translations.searchButton;
+    }
+    if (document.getElementById('openStatus')) {
+        document.getElementById('openStatus').textContent = translations.openStatus;
+    }
+    if (document.getElementById('inProgressStatus')) {
+        document.getElementById('inProgressStatus').textContent = translations.inProgressStatus;
+    }
+    if (document.getElementById('resolvedStatus')) {
+        document.getElementById('resolvedStatus').textContent = translations.resolvedStatus;
+    }
+    if (document.getElementById('instructionsTitle')) {
+        document.getElementById('instructionsTitle').textContent = translations.instructionsTitle;
+    }
+    if (document.getElementById('instruction1')) {
+        document.getElementById('instruction1').textContent = translations.instruction1;
+    }
+    if (document.getElementById('instruction2')) {
+        document.getElementById('instruction2').textContent = translations.instruction2;
+    }
+    if (document.getElementById('instruction3')) {
+        document.getElementById('instruction3').textContent = translations.instruction3;
+    }
+    if (document.getElementById('instruction5')) {
+        document.getElementById('instruction5').textContent = translations.instruction5;
+    }
+    if (document.getElementById('all_issues')) {
+        document.getElementById('all_issues').textContent = translations.allIssues;
+    }
+    if (document.getElementById('open_issues')) {
+        document.getElementById('open_issues').textContent = translations.openIssues;
+    }
+    if (document.getElementById('in_progress_issues')) {
+        document.getElementById('in_progress_issues').textContent = translations.inProgressIssues;
+    }
+    if (document.getElementById('resolved_issues')) {
+        document.getElementById('resolved_issues').textContent = translations.resolvedIssues;
+    }
 
-// Add a function to reinitialize all event listeners after translation
-function reinitializeEventListeners() {
-    const buttons = document.querySelectorAll('.option-button');
-    buttons.forEach(button => {
-        button.onclick = function() {
-            selectOption(this);
-        };
-    });
-
-    const instructionIcons = document.querySelectorAll('.fa-question-circle');
-    instructionIcons.forEach(icon => {
-        icon.onclick = function() {
-            const step = icon.closest('.step').id.replace('step', '');
-            toggleInstructions(step);
-        };
-    });
-
-    console.log("Event listeners reattached after translation.");
 }
 
 window.addEventListener('load', loadLanguage);

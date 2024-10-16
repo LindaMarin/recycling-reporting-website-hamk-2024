@@ -65,6 +65,7 @@
     "step4FinishText": "FINISH",
 
     "step5ThankYou": "Thank you for reporting!",
+    "step5span":"Your issue ID is",
     "returnHome": "Return to home page",
 
     "LearnTitle": "Learn about recycling here",
@@ -151,7 +152,20 @@
 
     "closeOverlay": "Close",
 
-
+    "exploreIssues": "Explore Issues",
+    "searchButton": "Search",
+    "openStatus": "Open",
+    "inProgressStatus": "In-Progress",
+    "resolvedStatus": "Resolved",
+    "allIssues": "All Issues",
+    "openIssues": "Open",
+    "inProgressIssues": "In-Progress",
+    "resolvedIssues": "Resolved",
+    "instructionsTitle": "Instructions for Navigating the Status Map:",
+    "instruction1": "Use the filter buttons at the top to display different sets of issues:",
+    "instruction2": "To find a specific issue, use the search bar by entering the issue ID.",
+    "instruction3": "Click on any issue marker on the map to view more details about the issue.",
+    "instruction5": "Zoom in and out on the map to explore different areas and view reported issues.",
 
     "footerText": "Footer"
 

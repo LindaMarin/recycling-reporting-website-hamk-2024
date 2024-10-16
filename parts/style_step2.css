@@ -7,6 +7,7 @@
   padding: 10px;
   border: none;
   cursor: pointer;
+  font-weight: bold;
 }
 
 /* Dropdown container */
@@ -25,25 +26,33 @@
   padding: 12px 16px;
   z-index: 1;
   text-align: left;
+  font-weight: bold;
 }
 
 /* Show dropdown on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+  background-color: #ffffff00;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 /* Style for clicked button */
 .clicked {
-  background-color: #245626 !important;
+  background-color: #4caf50 !important;
+  color: #ffffff !important;
+  font-weight:normal !important;
+
 }
 
 li {
-  color: black;
-  text-align: left;
+  color: #113a1b;
+  text-align: center;
   list-style: none;
+  font-weight: bold;
 }
 ol {
-  text-align: left;
+  text-align: center;
   list-style: none;
 }
 
@@ -56,5 +65,17 @@ h3 {
   color: #155724;
   font-size: 28px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+#step2 button {
+  background-color: #ffffff;
+  color: rgba(34, 53, 31, 0.85);
+  border: 2px solid #519D4B;
+  border-radius: 30px;
+  padding: 15px;
+  font-size: 20px;
+  transition: background-color 0.3s, border-color 0.3s;
+  margin-bottom: 30px;
+  text-align: center;
 }

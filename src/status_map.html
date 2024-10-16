@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Status Map</title>
+    <title id="title">Status Map</title>
     <link rel="stylesheet" href="../parts/style_global.css">
     <link rel="stylesheet" href="../parts/style_statusmap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
@@ -18,12 +18,8 @@
       <ul>
         <li><a id="homeLink" href="../index.html">Home</a></li>
         <li><a id="learnLink" href="../src/learn.html">Learn</a></li>
-        <li>
-          <a id="statusMapLink" href="../src/status_map.html" class="active">Status Map</a>
-        </li>
-        <li>
-          <a id="combinedReportLink" href="../src/combined_report.html">Reporting</a>
-        </li>
+        <li><a id="statusMapLink" href="../src/status_map.html" class="active">Status Map</a></li>
+        <li><a id="combinedReportLink" href="../src/combined_report.html">Reporting</a></li>
       </ul>
     </div>
     <div class="icons">
@@ -46,49 +42,44 @@
       <div class="info">
           <i class="fas fa-question-circle question-mark" onclick="toggleInstructions()"></i>
       </div>
-      <h2>Explore Issues</h2>
+      <h2 id="exploreIssues">Explore Issues</h2>
 
       <div class="image-row">
         <div style="text-align:center; display:inline-block; width:25%;">
-            <p style="font-weight:bolder; color: #155724;">General Cleanliness</p>
+            <p id="generalCleanliness" style="font-weight:bolder; color: #155724;">General Cleanliness</p>
             <img src="../parts/generalcleanliness_pie.png" alt="General Cleanliness" style="width:100%;">
         </div>
         <div style="text-align:center; display:inline-block; width:25%;">
-            <p style="font-weight: bolder; color: #155724;">Waste Sorting Area</p>
+            <p id="wasteSortingArea" style="font-weight: bolder; color: #155724;">Waste Sorting Area</p>
             <img src="../parts/wastesortingarea_pie.png" alt="Waste Sorting Area" style="width:100%;">
         </div>
         <div style="text-align:center; display:inline-block; width:25%;">
-            <p style="font-weight: bolder; color: #155724;">Waste Bins</p>
+            <p id="wasteBins" style="font-weight: bolder; color: #155724;">Waste Bins</p>
             <img src="../parts/wastebins_pie.png" alt="Waste Bins" style="width:100%;">
         </div>
     </div>
 
-    <span style="color:#FE5D26; font-weight: bold; margin: 10px">Open</span>
+    <span style="color:#FE5D26; font-weight: bold; margin: 10px" id="openStatus">Open</span>
     <span style="color:#000000;"> | </span>
-    <span style="color:#F2C078; font-weight: bold; margin: 10px">In Progress </span>
+    <span style="color:#F2C078; font-weight: bold; margin: 10px" id="inProgressStatus">In-Progress</span>
     <span style="color:#000000;"> | </span>
-    <span style="color:#519D4B; font-weight: bold; margin: 10px">Resolved</span>
+    <span style="color:#519D4B; font-weight: bold; margin: 10px" id="resolvedStatus">Resolved</span>
 
-      <!-- Search Bar for Issue ID -->
-      <div class="search-bar">
-          <input type="text" id="search-input" placeholder="Search by ID..." />
-          <button id="search-button">Search</button>
-      </div>
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search by ID..." />
+        <button id="searchButton">Search</button>
+    </div>
 
+    <div class="status_map_container">
+        <div class="status-list">
+            <button id="all_issues">All Issues</button>
+            <button id="open_issues">Open Issues</button>
+            <button id="in_progress_issues">In-Progress Issues</button>
+            <button id="resolved_issues">Resolved Issues</button>
+        </div>
 
-      <!-- Status Map Container -->
-      <div class="status_map_container">
-          <!-- Filter Options -->
-          <div class="status-list">
-              <button id="all_issues">All Issues</button>
-              <button id="open_issues">Open Issues</button>
-              <button id="in_progress_issues">In-Progress Issues</button>
-              <button id="resolved_issues">Resolved Issues</button>
-          </div>
-
-          <!-- Map Container -->
-          <div class="map-container" id="map"></div>
-      </div>
+        <div class="map-container" id="map"></div>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -97,29 +88,27 @@
   <div class="instructions-overlay" id="instructions-overlay" style="display:none;">
     <div class="instructions-box">
         <span class="close-button" onclick="toggleInstructions()">×</span>
-        <p><b>Instructions for Navigating the Status Map:</b></p>
+        <p><b id="instructionsTitle">Instructions for Navigating the Status Map:</b></p>
         <ol>
-            <li>Use the <b>filter buttons</b> at the top to display different sets of issues:
-                <ul>
-                    <li><b>All Issues:</b> View all reported issues on the map.</li>
-                    <li><b>Open Issues:</b> Filter to see only currently unresolved issues.</li>
-                    <li><b>In-Progress Issues:</b> Display issues that are being actively addressed.</li>
-                    <li><b>Resolved Issues:</b> Check issues that have been marked as resolved.</li>
-                </ul>
-            </li>
-            <li>To find a specific issue, use the <b>search bar</b> by entering the issue ID. The map will automatically zoom to the issue location.</li>
-            <li>Click on any issue marker on the map to view more <b>details</b> about the issue.</li>
-            <li>If necessary, you can mark an issue as <b>resolved</b> or <b>reopen</b> it from the details popup.</li>
-            <li>Zoom in and out on the map to explore different areas and view reported issues.</li>
+            <li id="instruction1">Use the <b>filter buttons</b> at the top to display different sets of issues:</li>
+            <li id="instruction2">To find a specific issue, use the <b>search bar</b> by entering the issue ID.</li>
+            <li id="instruction3">Click on any issue marker on the map to view more <b>details</b> about the issue.</li>
+            <li id="instruction5">Zoom in and out on the map to explore different areas and view reported issues.</li>
         </ol>
     </div>
-</div>
+  </div>
 
   <script>
+    // Reuse the existing language loading and translation functions
+    window.addEventListener('load', loadLanguage);
 
-function toggleInstructions() {
+    function toggleInstructions() {
             const overlay = document.getElementById('instructions-overlay');
-            overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+            if (overlay.style.display === 'block') {
+                overlay.style.display = 'none';
+            } else {
+                overlay.style.display = 'block';
+            }
         }
       // Initialize the map centered on Kanta-Häme
       var map = L.map('map').setView([60.9911, 24.4608], 10); // Zoomed in on Kanta-Häme
@@ -151,7 +140,7 @@ function toggleInstructions() {
     { id: 17, lat: 60.9300, lng: 24.4600, status: 'resolved' }, 
     { id: 18, lat: 61.0100, lng: 24.4400, status: 'resolved' },     
     { id: 19, lat: 61.0250, lng: 24.5050, status: 'in_progress' },
-    { id: 20, lat: 61.0350, lng: 24.5200, status: 'open' },   
+    { id: 532667, lat: 61.0350, lng: 24.5200, status: 'open' },   
     { id: 21, lat: 60.9450, lng: 24.5400, status: 'resolved' },  
     { id: 22, lat: 60.9550, lng: 24.4100, status: 'in_progress' }, 
     { id: 23, lat: 61.0400, lng: 24.4700, status: 'resolved' },  
@@ -222,7 +211,7 @@ function toggleInstructions() {
       });
 
       // Search functionality for Issue ID
-      document.getElementById('search-button').addEventListener('click', function() {
+      document.getElementById('searchButton').addEventListener('click', function() {
           var searchInput = document.getElementById('search-input').value;
           var issue = issues.find(function(issue) {
               return issue.id == searchInput;

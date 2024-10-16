@@ -66,6 +66,7 @@
     "step4FinishText": "VIIMEISTELE",
 
     "step5ThankYou": "Kiitos raportoinnista!",
+    "step5span":"Ongelman seuraus ID on",
     "returnHome": "Palaa etusivulle",
 
     "LearnTitle": "Opi Kierrätyksestä täällä",
@@ -152,8 +153,21 @@
 
     "closeOverlay": "Sulje",
 
+    "exploreIssues": "Tutki ongelmia",
+    "searchButton": "Hae",
+    "openStatus": "Avoinna",
+    "inProgressStatus": "Käsittelyssä",
+    "resolvedStatus": "Ratkaistu",
+    "allIssues": "Kaikki ongelmat",
+    "openIssues": "Avoinna",
+    "inProgressIssues": "Käsittelyssä",
+    "resolvedIssues": "Ratkaistu",
+    "instructionsTitle": "Ohjeet tilannekartan navigointiin:",
+    "instruction1": "Käytä ylhäällä olevia suodatinpainikkeita näyttääksesi eri ongelmaryhmiä:",
+    "instruction2": "Etsi tiettyä ongelmaa käyttämällä hakupalkkia syöttämällä ongelman ID.",
+    "instruction3": "Klikkaa mitä tahansa ongelmamerkkiä kartalla nähdäksesi lisätietoja ongelmasta.",
+    "instruction5": "Zoomaa sisään ja ulos kartalla tutkiaksesi eri alueita ja nähdäksesi raportoidut ongelmat.",
 
 
-
-    "footerText": "Ala-palkki"
+    "footerText": "Ala-tunniste"
 }
